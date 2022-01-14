@@ -13,7 +13,7 @@ function Footer() {
               Sloth
             </Link>
           </div>
-          <small class='website-rights'>Sloth © 2022</small>
+          <small class='website-rights'>Sloth 2022</small>
           <div class='social-icons'>
 
             <Link
