@@ -12,18 +12,22 @@ const Mint = () => <h1>Mint</h1>;
 import Header from './components/header';
 import Footer from './components/footer';
 
-function App(){
+import "./App.css";
+
+function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/mint' element={<Mint/>} />
-        <Route path='/team' element={<Mint/>} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div className="app">
+      <Router>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/mint' element={<Mint />} />
+          <Route path='/team' element={<Mint />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 

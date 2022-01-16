@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Container, Carousel, Image, Row, Col } from 'react-bootstrap';
+import { Container, Carousel, Image, Row, Col, Button, ListGroup } from 'react-bootstrap';
 
 import TeamCard from '../../components/teamCard/teamCard';
-import { MEMBERS, CAROUSEL_ITEMS, ABOUT_TEXT, ORIGIN_TEXT, ABOUT_IMAGE } from '../../utils';
+import { MEMBERS, CAROUSEL_ITEMS, ABOUT_TEXT, ORIGIN_TEXT, ABOUT_SECTION_IMAGE } from '../../utils';
 
 import './home.css';
 
@@ -11,7 +11,7 @@ export default function Home() {
 
     const getTeamMembers = () => {
         return (
-            MEMBERS.map((member, index) => <TeamCard key={index} name={member.name} role={member.role} twitter={member.twitter} picture={member.picture} />)
+            MEMBERS.map((member, index) => <Col xl={2} lg={4} md={4} sm={6} key={index}><TeamCard name={member.name} role={member.role} twitter={member.twitter} picture={member.picture} /></Col>)
         );
     }
 
@@ -20,7 +20,6 @@ export default function Home() {
             CAROUSEL_ITEMS.map((item, index) =>
                 <Carousel.Item key={index}>
                     <img
-                        className=""
                         src={item.img}
                         alt={item.alt}
                     />
@@ -34,60 +33,49 @@ export default function Home() {
     }
 
     return (
-        <div className='bg-dark'>
+        <>
             <Carousel>
                 {getCarouselItems()}
             </Carousel>
-            <Container className='body-section text-white pb-40'>
-                <Container className="about-section" id="about-section">
-                    <Row>
-                        <Col lg={6}>
-                            <h1>ABOUT SLOTH CLUB</h1>
-                            <p>{ABOUT_TEXT}</p>
-                        </Col>
-                        <Col lg={6}>
-                            <Image src={ABOUT_IMAGE} fluid />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col lg={7}>
-                            <h1>ORIGIN STORY</h1>
-                            <p>{ORIGIN_TEXT}</p>
-                        </Col>
-                    </Row>
-                </Container>
-                <Container>
-                    <h1>TEAM</h1>
-                    <Row className="mb-5">
-                        <Col>
-                            <TeamCard name="Majid Joseph" role="Developer" twitter="https://twitter.com/MajidJoseph3" picture="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3" />
-                        </Col>
-                        <Col>
-                            <TeamCard name="Majid Joseph" role="Developer" twitter="https://twitter.com/MajidJoseph3" picture="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3" />
-                        </Col>
-                        <Col>
-                            <TeamCard name="Majid Joseph" role="Developer" twitter="https://twitter.com/MajidJoseph3" picture="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3" />
-                        </Col>
-                        <Col>
-                            <TeamCard name="Majid Joseph" role="Developer" twitter="https://twitter.com/MajidJoseph3" picture="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3" />
-                        </Col>
-                    </Row>
-                    <Row className="">
-                        <Col>
-                            <TeamCard name="Majid Joseph" role="Developer" twitter="https://twitter.com/MajidJoseph3" picture="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3" />
-                        </Col>
-                        <Col>
-                            <TeamCard name="Majid Joseph" role="Developer" twitter="https://twitter.com/MajidJoseph3" picture="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3" />
-                        </Col>
-                        <Col>
-                            <TeamCard name="Majid Joseph" role="Developer" twitter="https://twitter.com/MajidJoseph3" picture="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3" />
-                        </Col>
-                        <Col>
-                            <TeamCard name="Majid Joseph" role="Developer" twitter="https://twitter.com/MajidJoseph3" picture="https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3" />
-                        </Col>
-                    </Row>
-                </Container>
+            <Container className="about-section pt-5 pb-5 text-white">
+                <Row>
+                    <Col lg={5} md={12} sm={12} xs={12} className="about-text-block">
+                        <div style={{ "opacity": "1", "transform": "none" }}>
+                            <h2>ABOUT SLOTH CLUB</h2>
+                            <p className="pt-2">{ABOUT_TEXT}</p>
+                            <div className='pt-1 pb-3'>
+                                <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                            </div>
+                        </div>
+                    </Col>
+                    {/* <Col lg={5} md={12} sm={12} xs={12} className="">
+                        <div className="about-section-image">
+                            <Image src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
+                        </div>
+                    </Col> */}
+                </Row>
+                <Row>
+                    <Col lg={5} md={12} sm={12} xs={12} className="origin-text-block">
+                        <Container style={{ "opacity": "1", "transform": "none" }}>
+                            <h2>ORIGIN STORY</h2>
+                            <p className="pt-2">{ORIGIN_TEXT}</p>
+                            <div className='pt-1 pb-3'>
+                                <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                            </div>
+                        </Container>
+                    </Col>
+                </Row>
             </Container>
-        </div>
+            <div className='team-section pt-5 pb-5'>
+                <Container className="pb-4">
+                    <Row className="text-center pb-5">
+                        <h1 className="center text-white">TEAM</h1>
+                    </Row>
+                    <Row className="text-center">
+                        {getTeamMembers()}
+                    </Row>
+                </Container>
+            </div>
+        </>
     );
 };
