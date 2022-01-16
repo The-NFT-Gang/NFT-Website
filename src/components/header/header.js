@@ -13,14 +13,15 @@ function Header() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/about">About</Nav.Link>
                         <Nav.Link href="/mint">Mint</Nav.Link>
+                        <Nav.Link href="/about">About</Nav.Link>
+                        <Nav.Link href="/team">Team</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#"><Twitter /></Nav.Link>
-                        <Nav.Link href="#"><Discord /></Nav.Link>
-                        <Nav.Link href="#"><Facebook /></Nav.Link>
-                        <Nav.Link href="#"><Instagram /></Nav.Link>
+                        <Nav.Link href="#"><Twitter size={20}/></Nav.Link>
+                        <Nav.Link href="#"><Discord size={20}/></Nav.Link>
+                        <Nav.Link href="#"><Facebook size={20}/></Nav.Link>
+                        <Nav.Link href="#"><Instagram size={20}/></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
