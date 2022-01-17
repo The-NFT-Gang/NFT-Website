@@ -1,3 +1,49 @@
-.team-section{
+.team-section, .about-section{
     background-color: #090909;
+}
+
+.discord-button-container{
+    width: 150px;
+    padding-top: 20px;
+}
+
+.discord-button-container:hover{
+    transform: scale(1.1) translateZ(0px) !important;
+}
+
+.twitter-button-container{
+    width: 150px;
+    height: 100px;
+    padding-top: 20px;
+}
+
+.twitter-button-container:hover{
+    transform: scale(1.1) translateZ(0px) !important;
+}
+
+.discord-button{
+    width: 150px;
+    height: 60px;
+    background-color: #4052dc;
+    padding: 12px;
+    border-radius: 3px;
+}
+
+.twitter-button{
+    /* width: 150px; */
+    height: 60px;
+    /* padding: 12px; */
+}
+
+.temp{
+    animation: popup 3s;
+    transform-style: preserve-3d;
+}
+@keyframes popup {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+    }
 }

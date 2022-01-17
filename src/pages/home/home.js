@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Carousel, Image, Row, Col, Button, ListGroup } from 'react-bootstrap';
 
 import TeamCard from '../../components/teamCard/teamCard';
-import { MEMBERS, CAROUSEL_ITEMS, ABOUT_TEXT, ORIGIN_TEXT, ABOUT_SECTION_IMAGE } from '../../utils';
+import { MEMBERS, CAROUSEL_ITEMS, ABOUT_TEXT, ORIGIN_TEXT, ABOUT_SECTION_IMAGE, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
 
 import './home.css';
 
@@ -37,7 +37,7 @@ export default function Home() {
             <Carousel>
                 {getCarouselItems()}
             </Carousel>
-            <div>
+            <div className="about-section">
                 <Container className="pt-5 text-white">
                     <Row>
                         <Col lg={5} md={12} sm={12} xs={12} style={{ "paddingRight": "80px" }}>
@@ -45,7 +45,7 @@ export default function Home() {
                                 <h2 className="pb-3">ABOUT SLOTH CLUB</h2>
                                 <p>{ABOUT_TEXT}</p>
                                 <div className='pt-1 pb-3'>
-                                    <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                                    <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
                                 </div>
                             </div>
                         </Col>
@@ -62,15 +62,44 @@ export default function Home() {
                             <h2 className="pb-3">ORIGIN STORY</h2>
                             <p>{ORIGIN_TEXT}</p>
                             <div className='pt-1 pb-3'>
-                                <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                                <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
                             </div>
                         </div>
                     </Col>
                 </Container>
             </div>
             <div>
-                <Container>
-                    
+                <Container className="pt-5 pb-5 text-white">
+                    <Row>
+                        <Col lg={6} md={12} xs={12}>
+                            <Image src={COMMUNITY_IMAGES[0].picture} alt={COMMUNITY_IMAGES[0].alt} />
+                        </Col>
+                        <Col lg={6} sm={12} md={12} xs={12} className="pl-5 ml-5">
+                            <div className="pl-5 ml-5">
+                                <h2 className="pt-5">JOIN OUR COMMUNITY</h2>
+                                <p>{COMMUNITY_TEXT}</p>
+                            </div>
+                            <div className='pt-1 pb-3'>
+                                <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                            </div>
+                            <Row>
+                                <Col>
+                                    <div className="discord-button-container" style={{ "transform": "none" }}>
+                                        <a href="#">
+                                            <Image className="discord-button" src={process.env.PUBLIC_URL + '/images/discord.svg'} />
+                                        </a>
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div className="twitter-button-container" style={{ "transform": "none" }}>
+                                        <a href="#">
+                                            <Image className="twitter-button" src={process.env.PUBLIC_URL + '/images/twitter.svg'} />
+                                        </a>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
                 </Container>
             </div>
             <div className='team-section pt-5 pb-5'>
@@ -78,7 +107,7 @@ export default function Home() {
                     <Row className="text-center pb-5">
                         <h1 className="center text-white">TEAM</h1>
                     </Row>
-                    <Row className="text-center">
+                    <Row className="text-center temp">
                         {getTeamMembers()}
                     </Row>
                 </Container>

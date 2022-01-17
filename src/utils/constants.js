@@ -60,3 +60,12 @@ export const ABOUT_SECTION_IMAGE = {
     picture: "https://picsum.photos/500/300?grayscale",
     alt: "this is the alt"
 };
+
+export const COMMUNITY_IMAGES = [
+    {
+        picture: "https://picsum.photos/500/300?grayscale",
+        alt: "this is the alt"
+    }
+];
+
+export const COMMUNITY_TEXT = "Join the Sloth Club community to keep up to date with the latest news. Check out our discord server to see what others have to say! Keep up to date with the latest news with our twitter!"
