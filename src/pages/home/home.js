@@ -9,6 +9,12 @@ import './home.css';
 
 export default function Home() {
 
+    // Button handler for the mint button
+    // Change logic here to connect to Dapp
+    const mintButtonHandler = () => {
+        console.log('MINTING!');
+    }
+
     const getTeamMembers = () => {
         return (
             MEMBERS.map((member, index) => <Col xl={2} lg={4} md={4} sm={6} key={index}><TeamCard name={member.name} role={member.role} twitter={member.twitter} picture={member.picture} /></Col>)
@@ -69,10 +75,23 @@ export default function Home() {
                 </Container>
             </div>
             <div>
+                <Container className="pt-5 pb-5 text-white mint-section">
+                    <h2 className="pb-2">MINT A SLOTH CLUB NFT</h2>
+                    <ul className="pb-5">
+                        <li>10,000 unique Sloths will be available</li>
+                        <li>Presale: June 1st 2022, 1pm EST</li>
+                        <li>Public Sale: June 2nd 2022, 1pm EST</li>
+                    </ul>
+                    <Button variant="danger" size="lg" onClick={() => mintButtonHandler()}>
+                        MINT
+                    </Button>
+                </Container>
+            </div>
+            <div>
                 <Container className="pt-5 pb-5 text-white">
                     <Row>
                         <Col lg={7} md={12} xs={12}>
-                            <Image src={COMMUNITY_IMAGES[0].picture} alt={COMMUNITY_IMAGES[0].alt} className="pr-5"/>
+                            <Image src={COMMUNITY_IMAGES[0].picture} alt={COMMUNITY_IMAGES[0].alt} className="pr-5" />
                         </Col>
                         <Col lg={5} sm={12} md={12} xs={12} className="pl-5 ml-5">
                             <div className="pl-5 ml-5">
