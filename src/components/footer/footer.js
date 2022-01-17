@@ -17,7 +17,7 @@ export default function Footer() {
                     © Copyright 2022 SLOTH CLUB
                 </Col>
                 <Col sm={6} xs={12} className="social-icon-list pt20">
-                    <a href="#" className='text-muted social-link'><Twitter size={20} className='pr-5'/></a>
+                    <a href="https://twitter.com/theslothsnft" className='text-muted social-link'><Twitter size={20}/></a>
                     <a href="#" className='text-muted social-link'><Discord size={20}/></a>
                     <a href="#" className='text-muted social-link'><Facebook size={20}/></a>
                     <a href="#" className='text-muted social-link'><Instagram size={20}/></a>

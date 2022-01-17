@@ -18,7 +18,7 @@ function Header() {
                         <Nav.Link href="/team">Team</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#"><Twitter size={20}/></Nav.Link>
+                        <Nav.Link href="https://twitter.com/theslothsnft"><Twitter  size={20}/></Nav.Link>
                         <Nav.Link href="#"><Discord size={20}/></Nav.Link>
                         <Nav.Link href="#"><Facebook size={20}/></Nav.Link>
                         <Nav.Link href="#"><Instagram size={20}/></Nav.Link>

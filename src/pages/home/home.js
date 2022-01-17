@@ -111,7 +111,7 @@ export default function Home() {
                                 </Col>
                                 <Col className="d-flex justify-content-center">
                                     <div className="twitter-button-container" style={{ "transform": "none" }}>
-                                        <a href="#">
+                                        <a href="https://twitter.com/theslothsnft">
                                             <Image className="twitter-button" src={process.env.PUBLIC_URL + '/images/twitter.svg'} />
                                         </a>
                                     </div>
