@@ -9,8 +9,6 @@ import './home.css';
 
 export default function Home() {
 
-    // Button handler for the mint button
-    // Change logic here to connect to Dapp
     const mintButtonHandler = () => {
         console.log('MINTING!');
     }
