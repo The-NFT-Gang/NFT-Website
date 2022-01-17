@@ -126,7 +126,7 @@ export default function Home() {
                     <Row className="text-center pb-5">
                         <h1 className="center text-white">TEAM</h1>
                     </Row>
-                    <Row className="text-center temp">
+                    <Row className="text-center">
                         {getTeamMembers()}
                     </Row>
                 </Container>

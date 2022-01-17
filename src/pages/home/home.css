@@ -35,19 +35,6 @@
     /* padding: 12px; */
 }
 
-.temp{
-    animation: popup 3s;
-    transform-style: preserve-3d;
-}
-@keyframes popup {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 100%;
-    }
-}
-
 .mint-section{
     display: flex;
     flex-direction: column;
