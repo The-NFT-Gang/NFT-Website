@@ -71,10 +71,10 @@ export default function Home() {
             <div>
                 <Container className="pt-5 pb-5 text-white">
                     <Row>
-                        <Col lg={6} md={12} xs={12}>
-                            <Image src={COMMUNITY_IMAGES[0].picture} alt={COMMUNITY_IMAGES[0].alt} />
+                        <Col lg={7} md={12} xs={12}>
+                            <Image src={COMMUNITY_IMAGES[0].picture} alt={COMMUNITY_IMAGES[0].alt} className="pr-5"/>
                         </Col>
-                        <Col lg={6} sm={12} md={12} xs={12} className="pl-5 ml-5">
+                        <Col lg={5} sm={12} md={12} xs={12} className="pl-5 ml-5">
                             <div className="pl-5 ml-5">
                                 <h2 className="pt-5">JOIN OUR COMMUNITY</h2>
                                 <p>{COMMUNITY_TEXT}</p>
@@ -82,15 +82,15 @@ export default function Home() {
                             <div className='pt-1 pb-3'>
                                 <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
                             </div>
-                            <Row>
-                                <Col>
+                            <Row className="d-flex justify-content-center">
+                                <Col className="d-flex justify-content-center">
                                     <div className="discord-button-container" style={{ "transform": "none" }}>
                                         <a href="#">
                                             <Image className="discord-button" src={process.env.PUBLIC_URL + '/images/discord.svg'} />
                                         </a>
                                     </div>
                                 </Col>
-                                <Col>
+                                <Col className="d-flex justify-content-center">
                                     <div className="twitter-button-container" style={{ "transform": "none" }}>
                                         <a href="#">
                                             <Image className="twitter-button" src={process.env.PUBLIC_URL + '/images/twitter.svg'} />
