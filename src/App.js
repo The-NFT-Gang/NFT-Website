@@ -5,9 +5,6 @@ import { fetchData } from "./redux/data/dataActions";
 import { BrowserRouter as Router, Routes, Route, Redirect } from 'react-router-dom';
 
 import Home from './pages/home';
-// TEMP PAGES
-const About = () => <h1>About</h1>;
-const Mint = () => <h1>Mint</h1>;
 
 import Header from './components/header';
 import Footer from './components/footer';
@@ -21,9 +18,6 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/mint' element={<Mint />} />
-          <Route path='/team' element={<Mint />} />
         </Routes>
         <Footer />
       </Router>
