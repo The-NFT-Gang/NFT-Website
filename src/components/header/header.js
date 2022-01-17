@@ -7,7 +7,7 @@ import { Twitter, Instagram, Facebook, Discord } from 'react-bootstrap-icons';
 
 function Header() {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
             <Container>
                 <Navbar.Brand href="/">Sloth Club</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

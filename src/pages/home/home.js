@@ -37,35 +37,42 @@ export default function Home() {
             <Carousel>
                 {getCarouselItems()}
             </Carousel>
-            <Container className="about-section pt-5 pb-5 text-white">
-                <Row>
-                    <Col lg={5} md={12} sm={12} xs={12} className="about-text-block">
+            <div>
+                <Container className="pt-5 text-white">
+                    <Row>
+                        <Col lg={5} md={12} sm={12} xs={12} style={{ "paddingRight": "80px" }}>
+                            <div style={{ "opacity": "1", "transform": "none" }}>
+                                <h2 className="pb-3">ABOUT SLOTH CLUB</h2>
+                                <p>{ABOUT_TEXT}</p>
+                                <div className='pt-1 pb-3'>
+                                    <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                                </div>
+                            </div>
+                        </Col>
+                        <Col lg={7} md={12} sm={12} xs={12}>
+                            <div style={{ "opacity": "1", "transform": "none" }}>
+                                <Image src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+                <Container className="pt-5 pb-5 text-white">
+                    <Col lg={5} md={12} sm={12} xs={12}>
                         <div style={{ "opacity": "1", "transform": "none" }}>
-                            <h2>ABOUT SLOTH CLUB</h2>
-                            <p className="pt-2">{ABOUT_TEXT}</p>
+                            <h2 className="pb-3">ORIGIN STORY</h2>
+                            <p>{ORIGIN_TEXT}</p>
                             <div className='pt-1 pb-3'>
                                 <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
                             </div>
                         </div>
                     </Col>
-                    {/* <Col lg={5} md={12} sm={12} xs={12} className="">
-                        <div className="about-section-image">
-                            <Image src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
-                        </div>
-                    </Col> */}
-                </Row>
-                <Row>
-                    <Col lg={5} md={12} sm={12} xs={12} className="origin-text-block">
-                        <Container style={{ "opacity": "1", "transform": "none" }}>
-                            <h2>ORIGIN STORY</h2>
-                            <p className="pt-2">{ORIGIN_TEXT}</p>
-                            <div className='pt-1 pb-3'>
-                                <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
-                            </div>
-                        </Container>
-                    </Col>
-                </Row>
-            </Container>
+                </Container>
+            </div>
+            <div>
+                <Container>
+                    
+                </Container>
+            </div>
             <div className='team-section pt-5 pb-5'>
                 <Container className="pb-4">
                     <Row className="text-center pb-5">
