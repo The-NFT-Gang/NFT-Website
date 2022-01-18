@@ -8,6 +8,7 @@ import { MEMBERS, CAROUSEL_ITEMS, ABOUT_TEXT, ORIGIN_TEXT, ABOUT_SECTION_IMAGE, 
 import './home.css';
 
 import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 export default function Home() {
 
@@ -137,6 +138,7 @@ export default function Home() {
                     </Row>
                 </Container>
             </div>
+            <Footer />
         </>
     );
 };
