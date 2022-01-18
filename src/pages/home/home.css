@@ -2,6 +2,10 @@
     background-color: #090909;
 }
 
+.heading{
+    font-family: 'LuckiestGuy';
+}
+
 .discord-button-container{
     width: 150px;
     padding-top: 20px;

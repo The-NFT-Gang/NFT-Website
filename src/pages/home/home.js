@@ -55,7 +55,7 @@ export default function Home() {
                     <Row>
                         <Col lg={5} md={12} sm={12} xs={12} style={{ "paddingRight": "80px" }}>
                             <div style={{ "opacity": "1", "transform": "none" }}>
-                                <h2 className="pb-3">ABOUT SLOTH CLUB</h2>
+                                <h2 className="mb-3 heading">ABOUT SLOTH CLUB</h2>
                                 <p>{ABOUT_TEXT}</p>
                                 <div className='pt-1 pb-3'>
                                     <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
@@ -72,7 +72,7 @@ export default function Home() {
                 <Container className="pt-5 pb-5 text-white">
                     <Col lg={5} md={12} sm={12} xs={12}>
                         <div style={{ "opacity": "1", "transform": "none" }}>
-                            <h2 className="pb-3">ORIGIN STORY</h2>
+                            <h2 className="mb-3 heading">ORIGIN STORY</h2>
                             <p>{ORIGIN_TEXT}</p>
                             <div className='pt-1 pb-3'>
                                 <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
@@ -82,9 +82,9 @@ export default function Home() {
                 </Container>
             </div>
             <div ref={mintRef}>
-                <Container className="pt-5 pb-5 text-white mint-section">
-                    <h2 className="pb-2">MINT A SLOTH CLUB NFT</h2>
-                    <ul className="pb-5">
+                <Container className="mt-5 mb-5 text-white mint-section">
+                    <h2 className="mb-2 heading">MINT A SLOTH CLUB NFT</h2>
+                    <ul className="mb-5">
                         <li>10,000 unique Sloths will be available</li>
                         <li>Presale: June 1st 2022, 1pm EST</li>
                         <li>Public Sale: June 2nd 2022, 1pm EST</li>
@@ -102,7 +102,7 @@ export default function Home() {
                         </Col>
                         <Col lg={5} sm={12} md={12} xs={12} className="pl-5 ml-5">
                             <div className="pl-5 ml-5">
-                                <h2 className="pt-5">JOIN OUR COMMUNITY</h2>
+                                <h2 className="mt-5 heading">JOIN OUR COMMUNITY</h2>
                                 <p>{COMMUNITY_TEXT}</p>
                             </div>
                             <div className='pt-1 pb-3'>
@@ -131,7 +131,7 @@ export default function Home() {
             <div ref={teamRef} className='team-section pt-5 pb-5'>
                 <Container className="pb-4">
                     <Row className="text-center pb-5">
-                        <h1 className="center text-white">TEAM</h1>
+                        <h1 className="center text-white heading">TEAM</h1>
                     </Row>
                     <Row className="text-center">
                         {getTeamMembers()}

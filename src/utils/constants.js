@@ -1,39 +1,21 @@
 export const MEMBERS = [
     {
         name: "MAJID JOSEPH",
-        picture: "https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3",
+        picture: process.env.PUBLIC_URL + "/images/temp_nft_3.png",
         role: "DEVELOPER",
         twitter: "https://twitter.com/MajidJoseph3",
     },
     {
-        name: "MAJID JOSEPH",
-        picture: "https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3",
+        name: "HUNTER DENOMME",
+        picture: process.env.PUBLIC_URL + "/images/temp_nft_2.png",
         role: "DEVELOPER",
-        twitter: "https://twitter.com/MajidJoseph3",
+        twitter: "https://twitter.com/Hunter__Crypto",
     },
     {
-        name: "MAJID JOSEPH",
-        picture: "https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3",
-        role: "DEVELOPER",
-        twitter: "https://twitter.com/MajidJoseph3",
-    },
-    {
-        name: "MAJID JOSEPH",
-        picture: "https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3",
-        role: "DEVELOPER",
-        twitter: "https://twitter.com/MajidJoseph3",
-    },
-    {
-        name: "MAJID JOSEPH",
-        picture: "https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3",
-        role: "DEVELOPER",
-        twitter: "https://twitter.com/MajidJoseph3",
-    },
-    {
-        name: "MAJID JOSEPH",
-        picture: "https://scontent-ort2-1.xx.fbcdn.net/v/t1.6435-9/185011159_4225907887440562_6484869504518386466_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=godsSom7CA8AX856-TF&_nc_oc=AQmLSimkNbgfo7sRkoK5cTmZlDXZ24FBGPcagvoE9XXn3LajL1fGrRVCpddqBDgA_ds&_nc_ht=scontent-ort2-1.xx&oh=00_AT8AFbTHW6r4HKu3tKUl23v-P1O3iFuwCXJ84OT0-7u1cw&oe=62086AE3",
-        role: "DEVELOPER",
-        twitter: "https://twitter.com/MajidJoseph3",
+        name: "JOHN MASNSOUR",
+        picture: process.env.PUBLIC_URL + "/images/temp_nft_1.png",
+        role: "MARKETING",
+        twitter: "https://twitter.com/ObiJai",
     },
 ];
 
