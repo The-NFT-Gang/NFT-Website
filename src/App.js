@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
@@ -6,20 +6,15 @@ import { BrowserRouter as Router, Routes, Route, Redirect } from 'react-router-d
 
 import Home from './pages/home';
 
-import Header from './components/header';
-import Footer from './components/footer';
-
 import "./App.css";
 
 function App() {
   return (
     <div className="app">
       <Router>
-        <Header />
         <Routes>
           <Route path='/' element={<Home />} />
         </Routes>
-        <Footer />
       </Router>
     </div>
   );

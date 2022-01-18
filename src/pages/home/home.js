@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 
 import { Container, Carousel, Image, Row, Col, Button, ListGroup } from 'react-bootstrap';
 
@@ -7,7 +7,14 @@ import { MEMBERS, CAROUSEL_ITEMS, ABOUT_TEXT, ORIGIN_TEXT, ABOUT_SECTION_IMAGE, 
 
 import './home.css';
 
+import Header from '../../components/header';
+
 export default function Home() {
+
+    // References to scroll to positions on home page
+    const teamRef = createRef();
+    const aboutRef = createRef();
+    const mintRef = createRef();
 
     const mintButtonHandler = () => {
         console.log('MINTING!');
@@ -38,10 +45,11 @@ export default function Home() {
 
     return (
         <>
+            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef}/>
             <Carousel>
                 {getCarouselItems()}
             </Carousel>
-            <div className="about-section">
+            <div ref={aboutRef} className="about-section">
                 <Container className="pt-5 text-white">
                     <Row>
                         <Col lg={5} md={12} sm={12} xs={12} style={{ "paddingRight": "80px" }}>
@@ -72,7 +80,7 @@ export default function Home() {
                     </Col>
                 </Container>
             </div>
-            <div>
+            <div ref={mintRef}>
                 <Container className="pt-5 pb-5 text-white mint-section">
                     <h2 className="pb-2">MINT A SLOTH CLUB NFT</h2>
                     <ul className="pb-5">
@@ -119,7 +127,7 @@ export default function Home() {
                     </Row>
                 </Container>
             </div>
-            <div className='team-section pt-5 pb-5'>
+            <div ref={teamRef} className='team-section pt-5 pb-5'>
                 <Container className="pb-4">
                     <Row className="text-center pb-5">
                         <h1 className="center text-white">TEAM</h1>

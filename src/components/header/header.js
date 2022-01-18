@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Twitter, Instagram, Facebook, Discord } from 'react-bootstrap-icons';
 
-function Header() {
+function Header({ teamRef, aboutRef, mintRef }) {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
             <Container>
@@ -13,15 +13,15 @@ function Header() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/mint">Mint</Nav.Link>
-                        <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/team">Team</Nav.Link>
+                        <Nav.Link onClick={() => {mintRef.current.scrollIntoView()}}>Mint</Nav.Link>
+                        <Nav.Link onClick={() => {aboutRef.current.scrollIntoView()}}>About</Nav.Link>
+                        <Nav.Link onClick={() => {teamRef.current.scrollIntoView()}}>Team</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="https://twitter.com/theslothsnft"><Twitter  size={20}/></Nav.Link>
-                        <Nav.Link href="#"><Discord size={20}/></Nav.Link>
-                        <Nav.Link href="#"><Facebook size={20}/></Nav.Link>
-                        <Nav.Link href="#"><Instagram size={20}/></Nav.Link>
+                        <Nav.Link href="https://twitter.com/theslothsnft"><Twitter size={20} /></Nav.Link>
+                        <Nav.Link href="#"><Discord size={20} /></Nav.Link>
+                        <Nav.Link href="#"><Facebook size={20} /></Nav.Link>
+                        <Nav.Link href="#"><Instagram size={20} /></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
