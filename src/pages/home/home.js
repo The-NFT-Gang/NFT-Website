@@ -1,31 +1,134 @@
-import React, { createRef } from 'react';
-
+import React, { useEffect, useState, createRef } from 'react';
 import { Container, Carousel, Image, Row, Col, Button, ListGroup } from 'react-bootstrap';
-
 import TeamCard from '../../components/teamCard/teamCard';
 import { MEMBERS, CAROUSEL_ITEMS, ABOUT_TEXT, ORIGIN_TEXT, ABOUT_SECTION_IMAGE, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
-
 import './home.css';
-
+import { useDispatch, useSelector } from "react-redux";
+import { connect } from "./../../redux/blockchain/blockchainActions";
+import { fetchData } from "./../../redux/data/dataActions";
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
+
+//Used for contract address
+const truncate = (input, len) =>
+    input.length > len ? `${input.substring(0, len)}...` : input;
+
+
 export default function Home() {
+    const dispatch = useDispatch();
+    const blockchain = useSelector((state) => state.blockchain);
+    const data = useSelector((state) => state.data);
+    const [claimingNft, setClaimingNft] = useState(false);
+    const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+    const [mintAmount, setMintAmount] = useState(1);
+    const [CONFIG, SET_CONFIG] = useState({
+        CONTRACT_ADDRESS: "",
+        SCAN_LINK: "",
+        NETWORK: {
+            NAME: "Sloth",
+            SYMBOL: "SLO",
+            ID: 0,
+        },
+        NFT_NAME: "Sloths",
+        SYMBOL: "SLO",
+        MAX_SUPPLY: 1,
+        WEI_COST: 0,
+        DISPLAY_COST: 0,
+        GAS_LIMIT: 0,
+        MARKETPLACE: "opensea",
+        MARKETPLACE_LINK: "www.opensea.com",
+        SHOW_BACKGROUND: false,
+    });
+
+    // start of function for the dapp
+    const claimNFTs = () => {
+        let cost = CONFIG.WEI_COST;
+        let gasLimit = CONFIG.GAS_LIMIT;
+        let totalCostWei = String(cost * mintAmount);
+        let totalGasLimit = String(gasLimit * mintAmount);
+        console.log("Cost: ", totalCostWei);
+        console.log("Gas limit: ", totalGasLimit);
+        setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
+        setClaimingNft(true);
+        blockchain.smartContract.methods
+            .mint(mintAmount)
+            .send({
+                gasLimit: String(totalGasLimit),
+                to: CONFIG.CONTRACT_ADDRESS,
+                from: blockchain.account,
+                value: totalCostWei,
+            })
+            .once("error", (err) => {
+                console.log(err);
+                setFeedback("Sorry, something went wrong please try again later.");
+                setClaimingNft(false);
+            })
+            .then((receipt) => {
+                console.log(receipt);
+                setFeedback(
+                    `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+                );
+                setClaimingNft(false);
+                dispatch(fetchData(blockchain.account));
+            });
+    };
+
+    const decrementMintAmount = () => {
+        let newMintAmount = mintAmount - 1;
+        if (newMintAmount < 1) {
+            newMintAmount = 1;
+        }
+        setMintAmount(newMintAmount);
+    };
+
+    const incrementMintAmount = () => {
+        let newMintAmount = mintAmount + 1;
+        if (newMintAmount > 10) {
+            newMintAmount = 10;
+        }
+        setMintAmount(newMintAmount);
+    };
+
+    const getData = () => {
+        if (blockchain.account !== "" && blockchain.smartContract !== null) {
+            dispatch(fetchData(blockchain.account));
+        }
+    };
+
+    const getConfig = async () => {
+        const configResponse = await fetch("/config/config.json", {
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+        });
+        const config = await configResponse.json();
+        SET_CONFIG(config);
+    };
+
+    useEffect(() => {
+        getConfig();
+    }, []);
+
+    useEffect(() => {
+        getData();
+    }, [blockchain.account]);
+
+
+
 
     // References to scroll to positions on home page
     const teamRef = createRef();
     const aboutRef = createRef();
     const mintRef = createRef();
 
-    const mintButtonHandler = () => {
-        console.log('MINTING!');
-    }
-
     const getTeamMembers = () => {
         return (
             MEMBERS.map((member, index) => <Col xl={2} lg={4} md={4} sm={6} key={index}><TeamCard name={member.name} role={member.role} twitter={member.twitter} picture={member.picture} /></Col>)
         );
     }
+
 
     const getCarouselItems = () => {
         return (
@@ -46,7 +149,7 @@ export default function Home() {
 
     return (
         <>
-            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef}/>
+            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef} />
             <Carousel>
                 {getCarouselItems()}
             </Carousel>
@@ -89,8 +192,23 @@ export default function Home() {
                         <li>Presale: June 1st 2022, 1pm EST</li>
                         <li>Public Sale: June 2nd 2022, 1pm EST</li>
                     </ul>
-                    <Button variant="danger" size="lg" onClick={() => mintButtonHandler()}>
-                        MINT
+                    <Button variant="danger" size="lg" onClick={(e) => {
+                        e.preventDefault();
+                        dispatch(connect());
+                        getData();
+                    }}>
+                        CONNECT
+                    </Button>
+
+                    <Button variant="danger" size="lg"
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            claimNFTs();
+                            getData();
+                        }}
+                    >
+                        {claimingNft ? "BUSY" : "MINT"}
                     </Button>
                 </Container>
             </div>
