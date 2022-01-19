@@ -50,4 +50,4 @@ export const COMMUNITY_IMAGES = [
     }
 ];
 
-export const COMMUNITY_TEXT = "Join the Sloth Club community to keep up to date with the latest news. Check out our discord server to see what others have to say! Keep up to date with the latest news with our twitter!"
+export const COMMUNITY_TEXT = "Join the MetaSloths community to keep up to date with the latest news. Check out our discord server to see what others have to say! Keep up to date with the latest news with our twitter!"

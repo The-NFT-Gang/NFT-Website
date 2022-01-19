@@ -3,13 +3,13 @@ import React from 'react';
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Twitter, Instagram, Facebook, Discord } from 'react-bootstrap-icons';
+import { Twitter, Instagram, Discord } from 'react-bootstrap-icons';
 
 function Header({ teamRef, aboutRef, mintRef }) {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
             <Container>
-                <Navbar.Brand href="/">Sloth Club</Navbar.Brand>
+                <Navbar.Brand href="/">MetaSloths</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -20,7 +20,6 @@ function Header({ teamRef, aboutRef, mintRef }) {
                     <Nav>
                         <Nav.Link href="https://twitter.com/theslothsnft"><Twitter size={20} /></Nav.Link>
                         <Nav.Link href="#"><Discord size={20} /></Nav.Link>
-                        <Nav.Link href="#"><Facebook size={20} /></Nav.Link>
                         <Nav.Link href="#"><Instagram size={20} /></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
