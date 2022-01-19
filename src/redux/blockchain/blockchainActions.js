@@ -31,8 +31,63 @@ const updateAccountRequest = (payload) => {
   };
 };
 
+// export const isWalletConnected = async () => {
+//   const { ethereum } = window;
+
+//   const abiResponse = await fetch("/config/abi.json", {
+//     headers: {
+//       "Content-Type": "application/json",
+//       Accept: "application/json",
+//     },
+//   });
+//   const abi = await abiResponse.json();
+
+//   const configResponse = await fetch("/config/config.json", {
+//     headers: {
+//       "Content-Type": "application/json",
+//       Accept: "application/json",
+//     },
+//   });
+//   const CONFIG = await configResponse.json();
+//   Web3EthContract.setProvider(ethereum);
+//   let web3 = new Web3(ethereum);
+
+//   const account = await web3.eth.getAccounts();
+//   const contract = new Web3EthContract(
+//     abi,
+//     CONFIG.CONTRACT_ADDRESS
+//   );
+//   console.log(contract);
+//   console.log(account);
+
+//   const isConnected = account != null && account.length > 0;
+  
+//   return {contract, account, web3, isConnected};
+//   // {account, contract, web3, true/false}
+// }
+
+// export const isWalletConnected = async () => {
+//   return async (dispatch) => {
+//     dispatch(connectRequest());
+//     const { ethereum } = window;
+
+//     let web3 = new Web3(ethereum);
+
+//     const account = await web3.eth.getAccounts();
+//     dispatch(
+//       connectSuccess({
+//         account: account,
+//         smartContract: null,
+//         web3: web3,
+//       })
+//     );
+//     return account != null && account.length > 0;
+//   };
+// }
+
 export const connect = () => {
   return async (dispatch) => {
+    console
     dispatch(connectRequest());
     const abiResponse = await fetch("/config/abi.json", {
       headers: {

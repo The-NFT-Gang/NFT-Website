@@ -4,22 +4,21 @@ import TeamCard from '../../components/teamCard/teamCard';
 import { MEMBERS, CAROUSEL_ITEMS, ABOUT_TEXT, ORIGIN_TEXT, ABOUT_SECTION_IMAGE, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
 import './home.css';
 import { useDispatch, useSelector } from "react-redux";
-import { connect } from "./../../redux/blockchain/blockchainActions";
+import { connect, isWalletConnected } from "./../../redux/blockchain/blockchainActions";
 import { fetchData } from "./../../redux/data/dataActions";
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
-
 //Used for contract address
 const truncate = (input, len) =>
     input.length > len ? `${input.substring(0, len)}...` : input;
-
 
 export default function Home() {
     const dispatch = useDispatch();
     const blockchain = useSelector((state) => state.blockchain);
     const data = useSelector((state) => state.data);
     const [claimingNft, setClaimingNft] = useState(false);
+    const [isConnectedAndCanMint, setIsConnectedAndCanMint] = useState(false);
     const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
     const [mintAmount, setMintAmount] = useState(1);
     const [CONFIG, SET_CONFIG] = useState({
@@ -111,12 +110,20 @@ export default function Home() {
         getConfig();
     }, []);
 
+    useEffect(async () => {
+        // console.log("HI");
+        // const res = await isWalletConnected();
+        // console.log(res);
+        // setIsConnectedAndCanMint(res.isConnected);
+        // blockchain.account = res.account;
+        // blockchain.smartContract = res.contract;
+        // blockchain.web3 = res.web3;
+        // setBloc
+    })
+
     useEffect(() => {
         getData();
     }, [blockchain.account]);
-
-
-
 
     // References to scroll to positions on home page
     const teamRef = createRef();
@@ -128,7 +135,6 @@ export default function Home() {
             MEMBERS.map((member, index) => <Col xl={2} lg={4} md={4} sm={6} key={index}><TeamCard name={member.name} role={member.role} twitter={member.twitter} picture={member.picture} /></Col>)
         );
     }
-
 
     const getCarouselItems = () => {
         return (
@@ -154,12 +160,18 @@ export default function Home() {
                 {getCarouselItems()}
             </Carousel>
             <div ref={aboutRef} className="about-section">
+            <button onClick={() => {
+                console.log(blockchain.smartContract);
+                console.log(blockchain.account);
+                console.log(blockchain.web3);
+                console.log(isConnectedAndCanMint);
+            }}>click</button>
                 <Container className="pt-5 text-white">
                     <Row>
                         <Col lg={5} md={12} sm={12} xs={12} style={{ "paddingRight": "80px" }}>
                             <div style={{ "opacity": "1", "transform": "none" }}>
                                 <h2 className="mb-3 heading">ABOUT SLOTH CLUB</h2>
-                                <p>{ABOUT_TEXT}</p>
+                                <p className="text">{ABOUT_TEXT}</p>
                                 <div className='pt-1 pb-3'>
                                     <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
                                 </div>
@@ -176,7 +188,7 @@ export default function Home() {
                     <Col lg={5} md={12} sm={12} xs={12}>
                         <div style={{ "opacity": "1", "transform": "none" }}>
                             <h2 className="mb-3 heading">ORIGIN STORY</h2>
-                            <p>{ORIGIN_TEXT}</p>
+                            <p className="text">{ORIGIN_TEXT}</p>
                             <div className='pt-1 pb-3'>
                                 <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
                             </div>
@@ -187,29 +199,25 @@ export default function Home() {
             <div ref={mintRef}>
                 <Container className="mt-5 mb-5 text-white mint-section">
                     <h2 className="mb-2 heading">MINT A SLOTH CLUB NFT</h2>
-                    <ul className="mb-5">
+                    <ul className="mb-5 text">
                         <li>10,000 unique Sloths will be available</li>
                         <li>Presale: June 1st 2022, 1pm EST</li>
                         <li>Public Sale: June 2nd 2022, 1pm EST</li>
                     </ul>
-                    <Button variant="danger" size="lg" onClick={(e) => {
+                    {!(blockchain && blockchain.account) && <Button variant="danger" size="lg" onClick={(e) => {
                         e.preventDefault();
                         dispatch(connect());
                         getData();
                     }}>
                         CONNECT
-                    </Button>
-
-                    <Button variant="danger" size="lg"
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            claimNFTs();
-                            getData();
-                        }}
-                    >
-                        {claimingNft ? "BUSY" : "MINT"}
-                    </Button>
+                    </Button>}
+                    {blockchain && blockchain.account && !claimingNft && !claimingNft && <Button variant="danger" size="lg" onClick={(e) => {
+                        e.preventDefault();
+                        claimNFTs();
+                        getData();
+                    }}>
+                        MINT
+                    </Button>}
                 </Container>
             </div>
             <div>
@@ -221,7 +229,7 @@ export default function Home() {
                         <Col lg={5} sm={12} md={12} xs={12} className="pl-5 ml-5">
                             <div className="pl-5 ml-5">
                                 <h2 className="mt-5 heading">JOIN OUR COMMUNITY</h2>
-                                <p>{COMMUNITY_TEXT}</p>
+                                <p className='text'>{COMMUNITY_TEXT}</p>
                             </div>
                             <div className='pt-1 pb-3'>
                                 <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />

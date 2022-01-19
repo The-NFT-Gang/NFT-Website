@@ -4,3 +4,24 @@
       url("./assets/fonts/LuckiestGuy-Regular.ttf") format("truetype");
     font-weight: normal;
 }
+
+@font-face {
+    font-family: "Amiko-Bold";
+    src: local("Amiko-Bold"),
+      url("./assets/fonts/Amiko-Bold.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Amiko-Regular";
+    src: local("Amiko-Regular"),
+      url("./assets/fonts/Amiko-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Amiko-SemiBold";
+    src: local("Amiko-SemiBold"),
+      url("./assets/fonts/Amiko-SemiBold.ttf") format("truetype");
+    font-weight: normal;
+}
