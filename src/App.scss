@@ -1,0 +1,7 @@
+$theme-colors: (
+  "primary": #ffc107,
+  "secondary": #f44336
+);
+
+// import Bootstrap styles [MUST BE AT THE BOTTOM OF THIS FILE]
+@import "~bootstrap/scss/bootstrap.scss";

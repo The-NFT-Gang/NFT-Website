@@ -14,7 +14,7 @@ export default function Footer() {
             </div>
             <Row>
                 <Col sm={6} className="text-colour pt20 text-section" xs={12}>
-                    © Copyright 2022 METASLOTHS
+                    © Copyright 2022 META SLOTHS
                 </Col>
                 <Col sm={6} xs={12} className="social-icon-list pt20">
                     <a href="https://twitter.com/theslothsnft" className='text-muted social-link'><Twitter size={20}/></a>

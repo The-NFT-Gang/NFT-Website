@@ -1,1 +1,1 @@
-# MetaSloths NFT
+# Meta Sloths NFT
