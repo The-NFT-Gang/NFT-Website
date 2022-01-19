@@ -1,1 +1,1 @@
-# Sloth Club NFT
+# MetaSloths NFT

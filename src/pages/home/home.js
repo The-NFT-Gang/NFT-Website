@@ -170,7 +170,7 @@ export default function Home() {
                     <Row>
                         <Col lg={5} md={12} sm={12} xs={12} style={{ "paddingRight": "80px" }}>
                             <div style={{ "opacity": "1", "transform": "none" }}>
-                                <h2 className="mb-3 heading">ABOUT SLOTH CLUB</h2>
+                                <h2 className="mb-3 heading">ABOUT METASLOTHS</h2>
                                 <p className="text">{ABOUT_TEXT}</p>
                                 <div className='pt-1 pb-3'>
                                     <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
@@ -198,7 +198,7 @@ export default function Home() {
             </div>
             <div ref={mintRef}>
                 <Container className="mt-5 mb-5 text-white mint-section">
-                    <h2 className="mb-2 heading">MINT A SLOTH CLUB NFT</h2>
+                    <h2 className="mb-2 heading">MINT A METASLOTHS NFT</h2>
                     <ul className="mb-5 text">
                         <li>10,000 unique Sloths will be available</li>
                         <li>Presale: June 1st 2022, 1pm EST</li>
