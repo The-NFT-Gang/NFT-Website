@@ -9,10 +9,10 @@
   "NFT_NAME": "Sloth NFT Test",
   "SYMBOL": "NCC",
   "MAX_SUPPLY": 1000,
-  "WEI_COST": 75000000000000000,
-  "DISPLAY_COST": 0.075,
+  "WEI_COST": 150000000000000000,
+  "DISPLAY_COST": 0.15,
   "GAS_LIMIT": 285000,
-  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE": "OpeanSea",
   "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/slothtest",
   "SHOW_BACKGROUND": true
 }
