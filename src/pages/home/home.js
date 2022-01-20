@@ -1,8 +1,10 @@
 import React, { useEffect, useState, createRef } from 'react';
 import { Container, Carousel, Image, Row, Col, Button, ListGroup } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLink } from '@fortawesome/free-solid-svg-icons'
+import { faEthereum } from '@fortawesome/free-brands-svg-icons'
 import TeamCard from '../../components/teamCard/teamCard';
-import RoadMap from '../../components/roadMap/roadMap';
-import { MEMBERS, CAROUSEL_ITEMS, ROAD_MAP, ABOUT_TEXT, ORIGIN_TEXT, ABOUT_SECTION_IMAGE, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
+import { MEMBERS, CAROUSEL_ITEMS, ROAD_MAP, ABOUT_TEXT, ABOUT_SECTION_IMAGE, ORIGIN_TEXT, ORIGIN_SECTION_IMAGE, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
 import './home.css';
 import { useDispatch, useSelector } from "react-redux";
 import { connect, isWalletConnected } from "./../../redux/blockchain/blockchainActions";
@@ -131,6 +133,7 @@ export default function Home() {
     const aboutRef = createRef();
     const mintRef = createRef();
     const roadMapref = createRef();
+    const communityRef = createRef()
 
     const getTeamMembers = () => {
         return (
@@ -160,6 +163,7 @@ export default function Home() {
             CAROUSEL_ITEMS.map((item, index) =>
                 <Carousel.Item key={index}>
                     <img
+                        className='w-100'
                         src={item.img}
                         alt={item.alt}
                     />
@@ -174,73 +178,80 @@ export default function Home() {
 
     return (
         <>
-            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef} />
+            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef} communityRef={communityRef} />
             <Carousel>
                 {getCarouselItems()}
             </Carousel>
-            <div ref={aboutRef} className="about-section">
-            <button onClick={() => {
-                console.log(blockchain.smartContract);
-                console.log(blockchain.account);
-                console.log(blockchain.web3);
-                console.log(isConnectedAndCanMint);
-            }}>click</button>
-                <Container className="pt-5 text-white">
-                    <Row>
-                        <Col lg={5} md={12} sm={12} xs={12} style={{ "paddingRight": "80px" }}>
+            <div className="about-section">
+                <Container className="pt-3 text-white">
+                    <Row ref={aboutRef} className='mt-5'>
+                        <Col lg={2} md={5} sm={12} xs={12}>
                             <div style={{ "opacity": "1", "transform": "none" }}>
-                                <h2 className="mb-3 heading">ABOUT METASLOTHS</h2>
+                                <Image className='w-100 pe-5' src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
+                            </div>
+                        </Col>
+                        <Col lg={10} md={7} sm={12} xs={12}>
+                            <div className='d-flex justify-content-end flex-column h-100' style={{ "opacity": "1", "transform": "none" }}>
+                                <h2 className="mb-3 heading">ABOUT META SLOTHS</h2>
                                 <p className="text">{ABOUT_TEXT}</p>
                                 <div className='pt-1 pb-3'>
                                     <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
                                 </div>
                             </div>
                         </Col>
-                        <Col lg={7} md={12} sm={12} xs={12}>
-                            <div style={{ "opacity": "1", "transform": "none" }}>
-                                <Image src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
-                            </div>
-                        </Col>
                     </Row>
                 </Container>
                 <Container className="pt-5 pb-5 text-white">
-                    <Col lg={5} md={12} sm={12} xs={12}>
-                        <div style={{ "opacity": "1", "transform": "none" }}>
-                            <h2 className="mb-3 heading">ORIGIN STORY</h2>
-                            <p className="text">{ORIGIN_TEXT}</p>
-                            <div className='pt-1 pb-3'>
-                                <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                    <Row>
+                        <Col className='order-1 order-lg-1' lg={9} md={5} sm={12} xs={12}>
+                            <div className='d-flex justify-content-end flex-column h-100' style={{ "opacity": "1", "transform": "none" }}>
+                                <h2 className="mb-3 heading">ORIGIN STORY</h2>
+                                <p className="text">{ORIGIN_TEXT}</p>
+                                <div className='pt-1 pb-3'>
+                                    <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                                </div>
                             </div>
-                        </div>
-                    </Col>
+                        </Col>
+                        <Col className='order-1 order-lg-5' lg={3} md={7} sm={12} xs={12}>
+                            <Image className='w-100 ps-lg-5' src={ORIGIN_SECTION_IMAGE.picture} alt={ORIGIN_SECTION_IMAGE.alt} />
+                        </Col>
+                    </Row>
                 </Container>
             </div>
             <div ref={mintRef}>
-                <Container className="mt-5 mb-5 text-white mint-section">
-                    <h2 className="mb-2 heading">MINT A METASLOTHS NFT</h2>
-                    <ul className="mb-5 text">
-                        <li>10,000 unique Sloths will be available</li>
-                        <li>Presale: June 1st 2022, 1pm EST</li>
-                        <li>Public Sale: June 2nd 2022, 1pm EST</li>
-                    </ul>
-                    {!(blockchain && blockchain.account) && <Button variant="danger" size="lg" onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(connect());
-                        getData();
-                    }}>
-                        CONNECT
-                    </Button>}
-                    {blockchain && blockchain.account && !claimingNft && !claimingNft && <Button variant="danger" size="lg" onClick={(e) => {
-                        e.preventDefault();
-                        claimNFTs();
-                        getData();
-                    }}>
-                        MINT
-                    </Button>}
+                <Container className="mt-5 mb-5 text-white">
+                    <h2 className="mb-2 heading text-primary">MINT YOUR META SLOTH</h2>
+
+                    <Row className='mt-5'>
+                        <Col lg="4" md="4">
+                            <Image className='w-100' src='/images/samples/mooney_flip.png'></Image>
+                        </Col>
+                        <Col lg="8" md="8">
+                            <p className='fs-2 mb-3 heading'>10,000 unique Meta Sloths will be available</p>
+
+                            <p className='heading fs-4 mb-0'>Pre-sale: June 1, 2022 @ 1 PM, EST</p>
+                            <p className='heading fs-4 mb-4'>Public sale: June 2, 2022 @ 1 PM EST</p>
+
+                            {!(blockchain && blockchain.account) && <Button className='fs-2 heading' variant="primary" size="lg" onClick={(e) => {
+                                e.preventDefault();
+                                dispatch(connect());
+                                getData();
+                            }}>
+                                <FontAwesomeIcon className='fa-fw' icon={faLink} /> CONNECT
+                            </Button>}
+                            {blockchain && blockchain.account && !claimingNft && !claimingNft && <Button className='fs-2 heading' variant="primary" size="lg" onClick={(e) => {
+                                e.preventDefault();
+                                claimNFTs();
+                                getData();
+                            }}>
+                                <FontAwesomeIcon className='fa-fw' icon={faEthereum} /> MINT
+                            </Button>}
+                        </Col>
+                    </Row>
                 </Container>
             </div>
             <div>
-                <Container className="pt-5 pb-5 text-white">
+                <Container className="pt-5 pb-5 text-white" ref={communityRef}>
                     <Row>
                         <Col lg={7} md={12} xs={12}>
                             <Image src={COMMUNITY_IMAGES[0].picture} alt={COMMUNITY_IMAGES[0].alt} className="pr-5" />

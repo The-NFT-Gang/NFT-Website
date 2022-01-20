@@ -43,18 +43,6 @@
     /* padding: 12px; */
 }
 
-.mint-section{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-.mint-section>Button{
-    width: 100%;
-}
-
 ul{
     list-style-type: none;
     color: #ffc107;
