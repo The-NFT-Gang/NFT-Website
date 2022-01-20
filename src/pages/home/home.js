@@ -167,12 +167,12 @@ export default function Home() {
             <div className="about-section">
                 <Container className="pt-3 text-white">
                     <Row ref={aboutRef} className='mt-5'>
-                        <Col lg={2} md={12} sm={12} xs={12}>
+                        <Col lg={2} md={5} sm={12} xs={12}>
                             <div style={{ "opacity": "1", "transform": "none" }}>
                                 <Image className='w-100 pe-5' src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
                             </div>
                         </Col>
-                        <Col lg={10} md={12} sm={12} xs={12}>
+                        <Col lg={10} md={7} sm={12} xs={12}>
                             <div className='d-flex justify-content-end flex-column h-100' style={{ "opacity": "1", "transform": "none" }}>
                                 <h2 className="mb-3 heading">ABOUT META SLOTHS</h2>
                                 <p className="text">{ABOUT_TEXT}</p>
@@ -185,7 +185,7 @@ export default function Home() {
                 </Container>
                 <Container className="pt-5 pb-5 text-white">
                     <Row>
-                        <Col className='order-1 order-lg-1' lg={9} md={12} sm={12} xs={12}>
+                        <Col className='order-1 order-lg-1' lg={9} md={5} sm={12} xs={12}>
                             <div className='d-flex justify-content-end flex-column h-100' style={{ "opacity": "1", "transform": "none" }}>
                                 <h2 className="mb-3 heading">ORIGIN STORY</h2>
                                 <p className="text">{ORIGIN_TEXT}</p>
@@ -194,8 +194,8 @@ export default function Home() {
                                 </div>
                             </div>
                         </Col>
-                        <Col className='order-1 order-lg-5' lg={3} md={12} sm={12} xs={12}>
-                            <Image className='w-100 ps-5' src={ORIGIN_SECTION_IMAGE.picture} alt={ORIGIN_SECTION_IMAGE.alt} />
+                        <Col className='order-1 order-lg-5' lg={3} md={7} sm={12} xs={12}>
+                            <Image className='w-100 ps-lg-5' src={ORIGIN_SECTION_IMAGE.picture} alt={ORIGIN_SECTION_IMAGE.alt} />
                         </Col>
                     </Row>
                 </Container>

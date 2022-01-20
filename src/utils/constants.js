@@ -48,21 +48,6 @@ export const ORIGIN_SECTION_IMAGE = {
     alt: "this is the alt"
 };
 
-export const MINT_LIST = [
-    {
-        icon: faHashtag,
-        body: "10,000 unique Meta Sloths will be available"
-    },
-    {
-        icon: faClock,
-        body: "Pre-sale: June 1, 2022 @ 1 PM, EST"
-    },
-    {
-        icon: faClock,
-        body: "Public sale: June 2, 2022 @ 1 PM EST"
-    }
-]
-
 export const COMMUNITY_IMAGES = [
     {
         picture: "https://picsum.photos/500/300?grayscale",
