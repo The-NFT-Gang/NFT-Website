@@ -32,7 +32,7 @@ export const MEMBERS = [
         twitter: "https://twitter.com/ObiJai",
     }
 ];
-
+    
 export const CAROUSEL_ITEMS = [
     {
         img: "https://ik.imagekit.io/bayc/assets/bayc-mutant-hero.jpg",

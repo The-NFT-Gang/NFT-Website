@@ -150,7 +150,7 @@ export default function Home() {
         return (
             ROAD_MAP.map((item, index) => 
                 <Col xl={2} lg={4} md={4} sm={6} key={index}>
-                    <RoadMap phase={item.phase} img={item.img} title={item.title} description={item.description}/>
+                    <RoadMap img={item.img} phase={item.phase} title={item.title} description={item.description}/>
                 </Col>
             )
         );
