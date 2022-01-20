@@ -31,40 +31,45 @@ const updateAccountRequest = (payload) => {
   };
 };
 
-// export const isWalletConnected = async () => {
-//   const { ethereum } = window;
+export const isWalletConnected = async () => {
+  const { ethereum } = window;
 
-//   const abiResponse = await fetch("/config/abi.json", {
-//     headers: {
-//       "Content-Type": "application/json",
-//       Accept: "application/json",
-//     },
-//   });
-//   const abi = await abiResponse.json();
+  const abiResponse = await fetch("/config/abi.json", {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+  const abi = await abiResponse.json();
 
-//   const configResponse = await fetch("/config/config.json", {
-//     headers: {
-//       "Content-Type": "application/json",
-//       Accept: "application/json",
-//     },
-//   });
-//   const CONFIG = await configResponse.json();
-//   Web3EthContract.setProvider(ethereum);
-//   let web3 = new Web3(ethereum);
+  const configResponse = await fetch("/config/config.json", {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+  const CONFIG = await configResponse.json();
+  Web3EthContract.setProvider(ethereum);
+  let web3 = new Web3(ethereum);
 
-//   const account = await web3.eth.getAccounts();
-//   const contract = new Web3EthContract(
-//     abi,
-//     CONFIG.CONTRACT_ADDRESS
-//   );
-//   console.log(contract);
-//   console.log(account);
-
-//   const isConnected = account != null && account.length > 0;
+  const account = await web3.eth.getAccounts().catch(e=>console.log(`Failed to get accounts! No MetaMask installed?`));
+  // If MetaMask not installed, fail
+  if(!account) {
+    return -1
+  }
   
-//   return {contract, account, web3, isConnected};
-//   // {account, contract, web3, true/false}
-// }
+  const contract = new Web3EthContract(
+    abi,
+    CONFIG.CONTRACT_ADDRESS
+  );
+  // console.log(contract);
+  // console.log(account);
+
+  const isConnected = account != null && account.length > 0;
+  
+  return {contract, account, web3, isConnected};
+  // {account, contract, web3, true/false}
+}
 
 // export const isWalletConnected = async () => {
 //   return async (dispatch) => {
@@ -87,7 +92,6 @@ const updateAccountRequest = (payload) => {
 
 export const connect = () => {
   return async (dispatch) => {
-    console
     dispatch(connectRequest());
     const abiResponse = await fetch("/config/abi.json", {
       headers: {
@@ -111,7 +115,7 @@ export const connect = () => {
       try {
         const accounts = await ethereum.request({
           method: "eth_requestAccounts",
-        });
+        })
         const networkId = await ethereum.request({
           method: "net_version",
         });
@@ -139,7 +143,12 @@ export const connect = () => {
           dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`));
         }
       } catch (err) {
-        dispatch(connectFailed("Something went wrong."));
+        if(err && err.code && err.code == -32002) {
+          dispatch(connectFailed("Check your MetaMask because a connection request is already pending!"))
+          return -1
+        } else {
+          dispatch(connectFailed("Something went wrong."));
+        }
       }
     } else {
       dispatch(connectFailed("Install Metamask."));
