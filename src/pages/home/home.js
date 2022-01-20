@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons'
 import TeamCard from '../../components/teamCard/teamCard';
-import { MEMBERS, CAROUSEL_ITEMS, ABOUT_TEXT, ABOUT_SECTION_IMAGE, ORIGIN_TEXT, ORIGIN_SECTION_IMAGE, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
+import { MEMBERS, CAROUSEL_ITEMS, ROAD_MAP, ABOUT_TEXT, ABOUT_SECTION_IMAGE, ORIGIN_TEXT, ORIGIN_SECTION_IMAGE, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
 import './home.css';
 import { useDispatch, useSelector } from "react-redux";
 import { connect, isWalletConnected } from "./../../redux/blockchain/blockchainActions";
@@ -132,13 +132,31 @@ export default function Home() {
     const teamRef = createRef();
     const aboutRef = createRef();
     const mintRef = createRef();
+    const roadMapref = createRef();
     const communityRef = createRef()
 
     const getTeamMembers = () => {
         return (
-            MEMBERS.map((member, index) => <Col xl={2} lg={4} md={4} sm={6} key={index}><TeamCard name={member.name} role={member.role} twitter={member.twitter} picture={member.picture} /></Col>)
+            MEMBERS.map((member, index) => 
+                <Col xl={2} lg={4} md={4} sm={6} key={index}>
+                    <TeamCard name={member.name} role={member.role} twitter={member.twitter} picture={member.picture} />
+                </Col>
+            )
         );
     }
+
+
+    const getRoadMap = () => {
+        return (
+            ROAD_MAP.map((item, index) => 
+                <Col xl={2} lg={4} md={4} sm={6} key={index}>
+                    <RoadMap phase={item.phase} img={item.img} title={item.title} description={item.description}/>
+                </Col>
+            )
+        );
+    }
+
+    
 
     const getCarouselItems = () => {
         return (
@@ -266,6 +284,22 @@ export default function Home() {
                     </Row>
                 </Container>
             </div>
+
+
+
+             <div ref={roadMapref} className="roadmap-section pt-5 pb-5">
+                <Container className="text-center pb-4">
+                    <Row className="text-center pb-5">
+                        <h1 className="center text-white heading">Road Map</h1>
+                    </Row>
+                    <Row className="justify-content-center">
+                        {getRoadMap()}
+                    </Row>
+                </Container>
+            </div>
+
+
+
             <div ref={teamRef} className='team-section pt-5 pb-5'>
                 <Container className="pb-4">
                     <Row className="text-center pb-5">
@@ -276,6 +310,9 @@ export default function Home() {
                     </Row>
                 </Container>
             </div>
+
+
+
             <Footer />
         </>
     );

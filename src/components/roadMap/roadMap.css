@@ -1,0 +1,17 @@
+a:link{
+    text-decoration: none;
+}
+
+.roadmap-title {
+    font-family: 'LuckiestGuy';
+    font-size: 50px;
+    text-align: center;
+    color: #ffff
+}
+
+.roadmap-description {
+    font-family: 'LuckiestGuy';
+    font-size: 20px;
+    text-align: center;
+    color: #ffff
+}

@@ -28,7 +28,7 @@
     "web3": "^1.5.1",
     "web3-eth-contract": "^1.5.2"
   },
-  "author": "Majid Joseph, Hunter Denomme",
+  "author": "Majid Joseph, Hunter Denomme, Andre Mansour, Tomasz Andres",
   "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
