@@ -12,10 +12,28 @@ export const MEMBERS = [
         twitter: "https://twitter.com/Hunter__Crypto",
     },
     {
-        name: "JOHN MASNSOUR",
+        name: "ANDRE MANSOUR",
+        picture: process.env.PUBLIC_URL + "/images/temp_nft_2.png",
+        role: "DEVELOPER",
+        twitter: "https://twitter.com/itsobidre",
+    },
+    {
+        name: "TOMASZ ANDRES",
+        picture: process.env.PUBLIC_URL + "/images/temp_nft_2.png",
+        role: "DEVELOPER",
+        twitter: "https://twitter.com/TomaszAndres",
+    },
+    {
+        name: "JOHN MANSOUR",
         picture: process.env.PUBLIC_URL + "/images/temp_nft_1.png",
         role: "MARKETING",
         twitter: "https://twitter.com/ObiJai",
+    },
+    {
+        name: "ARON KAVANAGH",
+        picture: process.env.PUBLIC_URL + "/images/temp_nft_1.png",
+        role: "ARTIST",
+        twitter: "https://www.tiktok.com/@pectoralbrah",
     },
 ];
 
@@ -33,6 +51,38 @@ export const CAROUSEL_ITEMS = [
         alt: "this is the second alt"
     }
 ];
+
+export const ROAD_MAP = [
+    
+    {
+        phase: 0, 
+        img: "",
+        title:"Phase 1",
+        description: "Mint on this day",
+    },
+
+    {
+        phase: 1,
+        img: "",
+        title:"Phase 2",
+        description: "6% back to owners",
+    },
+
+    {
+        phase: 2,
+        img: "",
+        title:"Phase 3",
+        description: "Release Sloth Token",
+    },
+
+    {
+        phase: 3,
+        img: "",
+        title:"Phase 4",
+        description: "Allow users to use sloth in metaverse.",
+    }
+]
+
 
 export const ABOUT_TEXT = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
