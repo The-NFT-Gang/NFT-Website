@@ -234,10 +234,7 @@ export default function Home() {
             </div>
             <div>
                 <Container className="pt-5 pb-5 text-white" ref={communityRef}>
-                    <Row>
-                        <Col lg={7} md={12} xs={12}>
-                            <Image src={COMMUNITY_IMAGES[0].picture} alt={COMMUNITY_IMAGES[0].alt} className="pr-5" />
-                        </Col>
+                    <Row className="center">
                         <Col lg={5} sm={12} md={12} xs={12} className="pl-5 ml-5">
                             <div className="pl-5 ml-5">
                                 <h2 className="mt-5 heading">JOIN OUR COMMUNITY</h2>
@@ -246,22 +243,14 @@ export default function Home() {
                             <div className='pt-1 pb-3'>
                                 <div style={{ "width": "100%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
                             </div>
-                            <Row className="d-flex justify-content-center">
-                                <Col className="d-flex justify-content-center">
-                                    <div className="discord-button-container" style={{ "transform": "none" }}>
-                                        <a href="#">
-                                            <Image className="discord-button" src={process.env.PUBLIC_URL + '/images/discord.svg'} />
-                                        </a>
-                                    </div>
-                                </Col>
-                                <Col className="d-flex justify-content-center">
-                                    <div className="twitter-button-container" style={{ "transform": "none" }}>
-                                        <a href="https://twitter.com/theslothsnft">
-                                            <Image className="twitter-button" src={process.env.PUBLIC_URL + '/images/twitter.svg'} />
-                                        </a>
-                                    </div>
-                                </Col>
-                            </Row>
+                        </Col>
+                    </Row>
+                    <Row className="center">
+                        <Col lg={5} sm={12} md={12} xs={12} className="mt-5 mb-5 center">
+                            <iframe src="https://discord.com/widget?id=750096806733414452&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                        </Col>
+                        <Col lg={5} sm={12} md={12} xs={12} className="mt-5 mb-5 center">
+                            <a class="twitter-timeline" data-width="350" data-height="500" data-theme="dark" href="https://twitter.com/MajidJoseph3?ref_src=twsrc%5Etfw">Tweets by MajidJoseph3</a>
                         </Col>
                     </Row>
                 </Container>
