@@ -234,8 +234,8 @@ export default function Home() {
                                     <p className='fs-6 mb-4'>{MINT_SUB2}</p>
                                 </div>
                                 <div className='d-none d-md-block'>
-                                    <p className='fs-4 mb-0'>{MINT_SUB1}</p>
-                                    <p className='fs-4 mb-4'>{MINT_SUB2}</p>
+                                    <p className='fs-5 mb-0'>{MINT_SUB1}</p>
+                                    <p className='fs-5 mb-4'>{MINT_SUB2}</p>
                                 </div>
 
                                 <div className='d-flex align-items-center justify-content-center justify-content-md-start'>
