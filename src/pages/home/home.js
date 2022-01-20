@@ -205,10 +205,10 @@ export default function Home() {
                     <h2 className="mb-2 heading text-primary">MINT YOUR META SLOTH</h2>
 
                     <Row className='mt-5'>
-                        <Col lg="4">
+                        <Col lg="4" md="4">
                             <Image className='w-100' src='/images/samples/mooney_flip.png'></Image>
                         </Col>
-                        <Col lg="8">
+                        <Col lg="8" md="8">
                             <p className='fs-2 mb-3 heading'>10,000 unique Meta Sloths will be available</p>
 
                             <p className='heading fs-4 mb-0'>Pre-sale: June 1, 2022 @ 1 PM, EST</p>
