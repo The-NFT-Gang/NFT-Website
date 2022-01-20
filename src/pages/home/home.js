@@ -186,15 +186,15 @@ export default function Home() {
             <div className="about-section">
                 <Container className="pt-3 text-white">
                     <Row ref={aboutRef} className='mt-5'>
-                        <Col lg={2} md={5} sm={12} xs={12} className='text-center mb-3'>
-                            <Image className='w-100 pe-5' src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
+                        <Col xl={2} lg={3} md={5} sm={12} xs={12} className='mb-3 text-center text-md-start'>
+                            <Image className='w-50 w-md-100 pe-5' src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
                         </Col>
-                        <Col lg={10} md={7} sm={12} xs={12}>
-                            <div className='d-flex justify-content-end flex-column h-100' style={{ "opacity": "1", "transform": "none" }}>
+                        <Col xl={10} lg={9} md={7} sm={12} xs={12}>
+                            <div className='d-flex justify-content-end flex-column h-100 text-center text-md-start' style={{ "opacity": "1", "transform": "none" }}>
                                 <h2 className="mb-3 heading">ABOUT META SLOTHS</h2>
                                 <p className="text">{ABOUT_TEXT}</p>
-                                <div className='pt-1 pb-3'>
-                                    <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                                <div className='pt-1 pb-3 text-center text-md-start'>
+                                    <div className='w-25 d-inline-block d-md-block w-md-75 w-inherit' style={{ "borderTop": "2px solid rgb(244, 67, 54)" }} />
                                 </div>
                             </div>
                         </Col>
@@ -202,17 +202,17 @@ export default function Home() {
                 </Container>
                 <Container className="pt-5 pb-5 text-white">
                     <Row>
-                        <Col className='order-1 order-lg-1' lg={9} md={5} sm={12} xs={12}>
-                            <div className='d-flex justify-content-end flex-column h-100' style={{ "opacity": "1", "transform": "none" }}>
+                        <Col className='order-5 order-md-1 mt-3 mt-md-0' lg={9} md={5} sm={12} xs={12}>
+                            <div className='d-flex justify-content-end flex-column h-100 text-end text-center text-md-start' style={{ "opacity": "1", "transform": "none" }}>
                                 <h2 className="mb-3 heading">ORIGIN STORY</h2>
                                 <p className="text">{ORIGIN_TEXT}</p>
-                                <div className='pt-1 pb-3'>
-                                    <div style={{ "width": "70%", "borderTop": "2px solid rgb(244, 67, 54)" }} />
+                                <div className='pt-1 pb-3 text-center text-md-start'>
+                                    <div className='w-25 d-inline-block d-md-block w-md-75 w-inherit' style={{ "borderTop": "2px solid rgb(244, 67, 54)" }} />
                                 </div>
                             </div>
                         </Col>
-                        <Col className='order-1 order-lg-5' lg={3} md={7} sm={12} xs={12}>
-                            <Image className='w-100 ps-lg-5' src={ORIGIN_SECTION_IMAGE.picture} alt={ORIGIN_SECTION_IMAGE.alt} />
+                        <Col className='order-1 order-md-5 text-end text-center text-md-start' lg={3} md={7} sm={12} xs={12}>
+                            <Image className='w-50 w-md-100 ps-lg-5' src={ORIGIN_SECTION_IMAGE.picture} alt={ORIGIN_SECTION_IMAGE.alt} />
                         </Col>
                     </Row>
                 </Container>
@@ -286,9 +286,7 @@ export default function Home() {
                 </Container>
             </div>
 
-
-
-             <div ref={roadMapref} className="roadmap-section pt-5 pb-5">
+            <div ref={roadMapref} className="roadmap-section pt-5 pb-5">
                 <Container className="text-center pb-4">
                     <Row className="text-center pb-5">
                         <h1 className="center text-white heading">Road Map</h1>
@@ -299,14 +297,12 @@ export default function Home() {
                 </Container>
             </div>
 
-
-
             <div ref={teamRef} className='team-section pt-5 pb-5'>
                 <Container className="pb-4">
                     <Row className="text-center pb-5">
                         <h1 className="center text-white heading">TEAM</h1>
                     </Row>
-                    <Row className="text-center">
+                    <Row className="justify-content-center">
                         {getTeamMembers()}
                     </Row>
                 </Container>
