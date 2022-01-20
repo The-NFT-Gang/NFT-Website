@@ -92,6 +92,9 @@ export const ORIGIN_SECTION_IMAGE = {
     alt: "this is the alt"
 };
 
+export const MINT_SUB1 = "Pre-sale: June 1, 2022 at 1 PM EST"
+export const MINT_SUB2 = "Public sale: June 2, 2022 at 1 PM EST"
+
 export const COMMUNITY_IMAGES = [
     {
         picture: "https://picsum.photos/500/300?grayscale",

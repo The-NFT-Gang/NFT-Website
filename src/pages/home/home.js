@@ -5,7 +5,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons'
 import TeamCard from '../../components/teamCard/teamCard';
 import RoadMap from '../../components/roadMap/roadMap';
-import { MEMBERS, CAROUSEL_ITEMS, ROAD_MAP, ABOUT_TEXT, ABOUT_SECTION_IMAGE, ORIGIN_TEXT, ORIGIN_SECTION_IMAGE, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
+import { MEMBERS, CAROUSEL_ITEMS, ROAD_MAP, ABOUT_TEXT, ABOUT_SECTION_IMAGE, ORIGIN_TEXT, ORIGIN_SECTION_IMAGE, MINT_SUB1, MINT_SUB2, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
 import './home.css';
 import { useDispatch, useSelector } from "react-redux";
 import { connect, isWalletConnected } from "./../../redux/blockchain/blockchainActions";
@@ -230,12 +230,12 @@ export default function Home() {
                                 <p className='fs-4 mb-3 heading'>10,000 unique Meta Sloths will be available</p>
 
                                 <div className='d-block d-md-none'>
-                                    <p className='fs-6 mb-0'>Pre-sale: June 1, 2022 @ 1 PM EST</p>
-                                    <p className='fs-6 mb-4'>Public sale: June 2, 2022 @ 1 PM EST</p>
+                                    <p className='fs-6 mb-0'>{MINT_SUB1}</p>
+                                    <p className='fs-6 mb-4'>{MINT_SUB2}</p>
                                 </div>
                                 <div className='d-none d-md-block'>
-                                    <p className='fs-4 mb-0'>Pre-sale: June 1, 2022 @ 1 PM EST</p>
-                                    <p className='fs-4 mb-4'>Public sale: June 2, 2022 @ 1 PM EST</p>
+                                    <p className='fs-4 mb-0'>{MINT_SUB1}</p>
+                                    <p className='fs-4 mb-4'>{MINT_SUB2}</p>
                                 </div>
 
                                 <div className='d-flex align-items-center justify-content-center justify-content-md-start'>
