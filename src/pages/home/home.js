@@ -114,15 +114,33 @@ export default function Home() {
         getConfig();
     }, []);
 
+    // Do connect on page load
     useEffect(async () => {
-        // console.log("HI");
-        // const res = await isWalletConnected();
-        // console.log(res);
-        // setIsConnectedAndCanMint(res.isConnected);
-        // blockchain.account = res.account;
-        // blockchain.smartContract = res.contract;
-        // blockchain.web3 = res.web3;
-        // setBloc
+        // const res = await isWalletConnected()
+        // if(res && res == -1) {
+        //     setIsConnectedAndCanMint(-1)
+        // } else if(res && res.isConnected) {
+        //     dispatch(connect())
+        //     getData()
+
+        //     setIsConnectedAndCanMint(true)
+        // } else {
+        //     setIsConnectedAndCanMint(false)
+        // }
+        dispatch(connect())
+    }, [])
+
+    // Check status of blockchain
+    useEffect(()=>{
+        if(blockchain) {
+            if(claimingNft || blockchain.loading) {
+                setIsConnectedAndCanMint(3)
+            } else if(blockchain.account) {
+                setIsConnectedAndCanMint(true)
+            } else {
+                setIsConnectedAndCanMint(false)
+            }
+        }
     })
 
     useEffect(() => {
@@ -146,7 +164,6 @@ export default function Home() {
         );
     }
 
-
     const getRoadMap = () => {
         return (
             ROAD_MAP.map((item, index) => 
@@ -156,8 +173,6 @@ export default function Home() {
             )
         );
     }
-
-    
 
     const getCarouselItems = () => {
         return (
@@ -241,14 +256,25 @@ export default function Home() {
                                 <div className='d-flex align-items-center justify-content-center justify-content-md-start'>
                                     <Image className='d-sm-none me-3' width="40" src='/images/samples/pointing.png'></Image>
                                     
-                                    {!(blockchain && blockchain.account) && <Button className='fs-2 heading' variant="primary" size="lg" onClick={(e) => {
+                                    {isConnectedAndCanMint == false && <Button id="home_connectBtn" className='fs-2 heading' variant="primary" size="lg" onClick={async e => {
                                         e.preventDefault();
-                                        dispatch(connect());
-                                        getData();
+                                        var connection = dispatch(connect())
+                                        if(connection.then) {
+                                            connection = await connection
+
+                                            if(connection && connection == -1) {
+                                                setIsConnectedAndCanMint(3)
+                                            }
+
+                                            getData();
+                                        }
                                     }}>
                                         <FontAwesomeIcon className='fa-fw' icon={faLink} /> CONNECT
                                     </Button>}
-                                    {blockchain && blockchain.account && !claimingNft && !claimingNft && <Button className='fs-2 heading' variant="primary" size="lg" onClick={(e) => {
+                                    {isConnectedAndCanMint == 3 && <Button id="home_connectBtn" className='fs-2 heading' variant="primary" size="lg" disabled>
+                                        <FontAwesomeIcon className='fa-fw fa-flip' icon={faEthereum} /> WAITING...
+                                    </Button>}
+                                    {isConnectedAndCanMint == true && !claimingNft && <Button id="home_mintBtn" className='fs-2 heading' variant="primary" size="lg" onClick={(e) => {
                                         e.preventDefault();
                                         claimNFTs();
                                         getData();
