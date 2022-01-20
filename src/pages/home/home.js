@@ -187,7 +187,7 @@ export default function Home() {
                 <Container className="pt-3 text-white">
                     <Row ref={aboutRef} className='mt-5'>
                         <Col xl={2} lg={3} md={5} sm={12} xs={12} className='mb-3 text-center text-md-start'>
-                            <Image className='w-50 w-md-100 pe-5' src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
+                            <Image className='w-50 w-md-100 pe-sm-5' src={ABOUT_SECTION_IMAGE.picture} alt={ABOUT_SECTION_IMAGE.alt} />
                         </Col>
                         <Col xl={10} lg={9} md={7} sm={12} xs={12}>
                             <div className='d-flex justify-content-end flex-column h-100 text-center text-md-start' style={{ "opacity": "1", "transform": "none" }}>
