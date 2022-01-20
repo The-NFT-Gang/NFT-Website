@@ -219,33 +219,43 @@ export default function Home() {
             </div>
             <div ref={mintRef}>
                 <Container className="mt-5 mb-5 text-white">
-                    <h2 className="mb-2 heading text-primary">MINT YOUR META SLOTH</h2>
+                    <h2 className="mb-2 heading text-primary text-center text-md-start">MINT YOUR META SLOTH</h2>
 
-                    <Row className='mt-5'>
-                        <Col xl="2" lg="3" md="4" sm="4">
-                            <Image className='w-100' src='/images/samples/pointing.png'></Image>
+                    <Row className='mt-1 mt-sm-5'>
+                        <Col xl="2" lg="3" md="4" sm="5">
+                            <Image className='w-100 pe-sm-0 pe-lg-4 pe-xl-0 d-none d-sm-block' src='/images/samples/pointing.png'></Image>
                         </Col>
-                        <Col xl="10" lg="9" md="8" sm="8">
-                            <div className='ps-4'>
-                                <p className='fs-2 mb-3 heading'>10,000 unique Meta Sloths will be available</p>
+                        <Col xl="10" lg="9" md="8" sm="7">
+                            <div className='ps-4 text-center text-md-start'>
+                                <p className='fs-4 mb-3 heading'>10,000 unique Meta Sloths will be available</p>
 
-                                <p className='heading fs-4 mb-0'>Pre-sale: June 1, 2022 @ 1 PM, EST</p>
-                                <p className='heading fs-4 mb-4'>Public sale: June 2, 2022 @ 1 PM EST</p>
+                                <div className='d-block d-md-none'>
+                                    <p className='fs-6 mb-0'>Pre-sale: June 1, 2022 @ 1 PM EST</p>
+                                    <p className='fs-6 mb-4'>Public sale: June 2, 2022 @ 1 PM EST</p>
+                                </div>
+                                <div className='d-none d-md-block'>
+                                    <p className='fs-4 mb-0'>Pre-sale: June 1, 2022 @ 1 PM EST</p>
+                                    <p className='fs-4 mb-4'>Public sale: June 2, 2022 @ 1 PM EST</p>
+                                </div>
 
-                                {!(blockchain && blockchain.account) && <Button className='fs-2 heading' variant="primary" size="lg" onClick={(e) => {
-                                    e.preventDefault();
-                                    dispatch(connect());
-                                    getData();
-                                }}>
-                                    <FontAwesomeIcon className='fa-fw' icon={faLink} /> CONNECT
-                                </Button>}
-                                {blockchain && blockchain.account && !claimingNft && !claimingNft && <Button className='fs-2 heading' variant="primary" size="lg" onClick={(e) => {
-                                    e.preventDefault();
-                                    claimNFTs();
-                                    getData();
-                                }}>
-                                    <FontAwesomeIcon className='fa-fw' icon={faEthereum} /> MINT
-                                </Button>}
+                                <div className='d-flex align-items-center justify-content-center justify-content-md-start'>
+                                    <Image className='d-sm-none me-3' width="40" src='/images/samples/pointing.png'></Image>
+                                    
+                                    {!(blockchain && blockchain.account) && <Button className='fs-2 heading' variant="primary" size="lg" onClick={(e) => {
+                                        e.preventDefault();
+                                        dispatch(connect());
+                                        getData();
+                                    }}>
+                                        <FontAwesomeIcon className='fa-fw' icon={faLink} /> CONNECT
+                                    </Button>}
+                                    {blockchain && blockchain.account && !claimingNft && !claimingNft && <Button className='fs-2 heading' variant="primary" size="lg" onClick={(e) => {
+                                        e.preventDefault();
+                                        claimNFTs();
+                                        getData();
+                                    }}>
+                                        <FontAwesomeIcon className='fa-fw' icon={faEthereum} /> MINT
+                                    </Button>}
+                                </div>
                             </div>
                         </Col>
                     </Row>
