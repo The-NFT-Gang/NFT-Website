@@ -1,6 +1,10 @@
-import { faHashtag, faClock } from '@fortawesome/free-solid-svg-icons'
-
 export const MEMBERS = [
+    {
+        name: "JOHN MANSOUR",
+        picture: process.env.PUBLIC_URL + "/images/temp_nft_1.png",
+        role: "FOUNDER",
+        twitter: "https://twitter.com/ObiJai",
+    },
     {
         name: "MAJID JOSEPH",
         picture: process.env.PUBLIC_URL + "/images/temp_nft_3.png",
@@ -14,23 +18,17 @@ export const MEMBERS = [
         twitter: "https://twitter.com/Hunter__Crypto",
     },
     {
-        name: "ANDRE MANSOUR",
-        picture: process.env.PUBLIC_URL + "/images/temp_nft_2.png",
-        role: "DEVELOPER",
-        twitter: "https://twitter.com/itsobidre",
-    },
-    {
         name: "TOMASZ ANDRES",
         picture: process.env.PUBLIC_URL + "/images/temp_nft_2.png",
         role: "DEVELOPER",
         twitter: "https://twitter.com/TomaszAndres",
     },
     {
-        name: "JOHN MANSOUR",
-        picture: process.env.PUBLIC_URL + "/images/temp_nft_1.png",
-        role: "MARKETING",
-        twitter: "https://twitter.com/ObiJai",
-    }
+        name: "ANDRE MANSOUR",
+        picture: process.env.PUBLIC_URL + "/images/temp_nft_2.png",
+        role: "DEVELOPER",
+        twitter: "https://twitter.com/itsobidre",
+    },
 ];
     
 export const CAROUSEL_ITEMS = [
@@ -103,3 +101,6 @@ export const COMMUNITY_IMAGES = [
 ];
 
 export const COMMUNITY_TEXT = "Join the Meta Sloths community to keep up to date with the latest news. Check out our discord server to see what others have to say! Keep up to date with the latest news on our twitter!"
+
+export const SMART_CONTRACT_ADDRESS = "0x5bBA20Da6f7434C7b57E59058214f0455d5bc629"
+export const SMART_CONTRACT_LINK = `https://etherscan.io/address/${SMART_CONTRACT_ADDRESS}`

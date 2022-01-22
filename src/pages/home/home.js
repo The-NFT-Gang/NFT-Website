@@ -5,7 +5,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons'
 import TeamCard from '../../components/teamCard/teamCard';
 import RoadMap from '../../components/roadMap/roadMap';
-import { MEMBERS, CAROUSEL_ITEMS, ROAD_MAP, ABOUT_TEXT, ABOUT_SECTION_IMAGE, ORIGIN_TEXT, ORIGIN_SECTION_IMAGE, MINT_SUB1, MINT_SUB2, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
+import { MEMBERS, CAROUSEL_ITEMS, ROAD_MAP, ABOUT_TEXT, ABOUT_SECTION_IMAGE, ORIGIN_TEXT, ORIGIN_SECTION_IMAGE, MINT_SUB1, MINT_SUB2, COMMUNITY_IMAGES, COMMUNITY_TEXT, SMART_CONTRACT_ADDRESS, SMART_CONTRACT_LINK } from '../../utils';
 import './home.css';
 import { useDispatch, useSelector } from "react-redux";
 import { connect, isWalletConnected } from "./../../redux/blockchain/blockchainActions";
@@ -131,11 +131,11 @@ export default function Home() {
     }, [])
 
     // Check status of blockchain
-    useEffect(()=>{
-        if(blockchain) {
-            if(claimingNft || blockchain.loading) {
+    useEffect(() => {
+        if (blockchain) {
+            if (claimingNft || blockchain.loading) {
                 setIsConnectedAndCanMint(3)
-            } else if(blockchain.account) {
+            } else if (blockchain.account) {
                 setIsConnectedAndCanMint(true)
             } else {
                 setIsConnectedAndCanMint(false)
@@ -156,7 +156,7 @@ export default function Home() {
 
     const getTeamMembers = () => {
         return (
-            MEMBERS.map((member, index) => 
+            MEMBERS.map((member, index) =>
                 <Col xl={2} lg={4} md={4} sm={6} key={index}>
                     <TeamCard name={member.name} role={member.role} twitter={member.twitter} picture={member.picture} />
                 </Col>
@@ -166,9 +166,9 @@ export default function Home() {
 
     const getRoadMap = () => {
         return (
-            ROAD_MAP.map((item, index) => 
+            ROAD_MAP.map((item, index) =>
                 <Col xl={2} lg={4} md={4} sm={6} key={index}>
-                    <RoadMap img={item.img} phase={item.phase} title={item.title} description={item.description}/>
+                    <RoadMap img={item.img} phase={item.phase} title={item.title} description={item.description} />
                 </Col>
             )
         );
@@ -255,14 +255,14 @@ export default function Home() {
 
                                 <div className='d-flex align-items-center justify-content-center justify-content-md-start'>
                                     <Image className='d-sm-none me-3' width="40" src='/images/samples/pointing.png'></Image>
-                                    
+
                                     {isConnectedAndCanMint == false && <Button id="home_connectBtn" className='fs-2 heading' variant="primary" size="lg" onClick={async e => {
                                         e.preventDefault();
                                         var connection = dispatch(connect())
-                                        if(connection.then) {
+                                        if (connection.then) {
                                             connection = await connection
 
-                                            if(connection && connection == -1) {
+                                            if (connection && connection == -1) {
                                                 setIsConnectedAndCanMint(3)
                                             }
 
@@ -310,7 +310,6 @@ export default function Home() {
                     </Row>
                 </Container>
             </div>
-
             <div ref={roadMapref} className="roadmap-section pt-5 pb-5">
                 <Container className="text-center pb-4">
                     <Row className="text-center pb-5">
@@ -321,7 +320,6 @@ export default function Home() {
                     </Row>
                 </Container>
             </div>
-
             <div ref={teamRef} className='team-section pt-5 pb-5'>
                 <Container className="pb-4">
                     <Row className="text-center pb-5">
@@ -332,9 +330,12 @@ export default function Home() {
                     </Row>
                 </Container>
             </div>
-
-
-
+            <div className="mt-5 mb-5">
+                <Container>
+                    <h3 className="heading text-white text-center">Verified Smart Contract Address</h3>
+                    <a href={SMART_CONTRACT_LINK}><p className="text-white text-primary text-center text-decoration-underline">{SMART_CONTRACT_ADDRESS}</p></a>
+                </Container>
+            </div>
             <Footer />
         </>
     );
