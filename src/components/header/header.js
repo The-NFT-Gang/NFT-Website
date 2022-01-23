@@ -5,10 +5,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Twitter, Instagram, Discord } from 'react-bootstrap-icons';
 
+import "./header.css";
+
 function Header({ teamRef, aboutRef, mintRef, communityRef, roadMapref }) {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Container>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed='top'>
+            <Container className='d-flex align-items-center justify-content-space-between'>
                 <Navbar.Brand href="/">Meta Sloths</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -16,8 +18,8 @@ function Header({ teamRef, aboutRef, mintRef, communityRef, roadMapref }) {
                         <Nav.Link onClick={() => {aboutRef.current.scrollIntoView()}}>About</Nav.Link>
                         <Nav.Link onClick={() => {mintRef.current.scrollIntoView()}}>Mint</Nav.Link>
                         <Nav.Link onClick={() => {communityRef.current.scrollIntoView()}}>Community</Nav.Link>
-                        <Nav.Link onClick={() => {teamRef.current.scrollIntoView()}}>Team</Nav.Link>
                         <Nav.Link onClick={() => {roadMapref.current.scrollIntoView()}}>Roadmap</Nav.Link>
+                        <Nav.Link onClick={() => {teamRef.current.scrollIntoView()}}>Team</Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="https://twitter.com/theslothsnft"><Twitter size={20} /></Nav.Link>
