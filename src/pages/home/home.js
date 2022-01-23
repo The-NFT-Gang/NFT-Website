@@ -192,7 +192,7 @@ export default function Home() {
 
     return (
         <>
-            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef} communityRef={communityRef} />
+            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef} communityRef={communityRef} roadMapref={roadMapref}/>
             <Carousel>
                 {getCarouselItems()}
             </Carousel>
@@ -285,8 +285,8 @@ export default function Home() {
                     </Row>
                 </Container>
             </div>
-            <div>
-                <Container className="pt-5 pb-5 text-white" ref={communityRef}>
+            <div ref={communityRef}>
+                <Container className="pt-5 pb-5 text-white">
                     <Row className="center">
                         <Col lg={5} sm={12} md={12} xs={12} className="pl-5 ml-5">
                             <div className="pl-5 ml-5">

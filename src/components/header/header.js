@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Twitter, Instagram, Discord } from 'react-bootstrap-icons';
 
-function Header({ teamRef, aboutRef, mintRef, communityRef }) {
+function Header({ teamRef, aboutRef, mintRef, communityRef, roadMapref }) {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -17,7 +17,7 @@ function Header({ teamRef, aboutRef, mintRef, communityRef }) {
                         <Nav.Link onClick={() => {mintRef.current.scrollIntoView()}}>Mint</Nav.Link>
                         <Nav.Link onClick={() => {communityRef.current.scrollIntoView()}}>Community</Nav.Link>
                         <Nav.Link onClick={() => {teamRef.current.scrollIntoView()}}>Team</Nav.Link>
-                        <Nav.Link onClick={() => {teamRef.current.scrollIntoView()}}>Roadmap</Nav.Link>
+                        <Nav.Link onClick={() => {roadMapref.current.scrollIntoView()}}>Roadmap</Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="https://twitter.com/theslothsnft"><Twitter size={20} /></Nav.Link>
