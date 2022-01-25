@@ -5,7 +5,8 @@ import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons'
 import TeamCard from '../../components/teamCard/teamCard';
 import RoadMap from '../../components/roadMap/roadMap';
-import { MEMBERS, CAROUSEL_ITEMS, ROAD_MAP, ABOUT_TEXT, ABOUT_SECTION_IMAGE, ORIGIN_TEXT, ORIGIN_SECTION_IMAGE, MINT_SUB1, MINT_SUB2, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
+import Pointer from '../../components/pointer/pointer';
+import { MEMBERS, CAROUSEL_ITEMS, ROAD_MAP,THE_POINTER, ABOUT_TEXT, ABOUT_SECTION_IMAGE, ORIGIN_TEXT, ORIGIN_SECTION_IMAGE, MINT_SUB1, MINT_SUB2, COMMUNITY_IMAGES, COMMUNITY_TEXT } from '../../utils';
 import './home.css';
 import { useDispatch, useSelector } from "react-redux";
 import { connect, isWalletConnected } from "./../../redux/blockchain/blockchainActions";
@@ -153,6 +154,7 @@ export default function Home() {
     const mintRef = createRef();
     const roadMapref = createRef();
     const communityRef = createRef()
+    const pointer = createRef()
 
     const getTeamMembers = () => {
         return (
@@ -169,6 +171,16 @@ export default function Home() {
             ROAD_MAP.map((item, index) => 
                 <Col xl={2} lg={4} md={4} sm={6} key={index}>
                     <RoadMap img={item.img} phase={item.phase} title={item.title} description={item.description}/>
+                </Col>
+            )
+        );
+    }
+
+    const getPointer = () => {
+        return (
+            THE_POINTER.map((item, index) => 
+                <Col xl={2} lg={4} md={4} sm={6} key={index}>
+                    <Pointer pointer={item.pointer}/>
                 </Col>
             )
         );
@@ -311,13 +323,14 @@ export default function Home() {
                 </Container>
             </div>
 
-            <div ref={roadMapref} className="roadmap-section pt-5 pb-5">
+            <div ref={roadMapref,pointer} className="roadmap-section pt-5 pb-5">
                 <Container className="text-center pb-4">
                     <Row className="text-center pb-5">
                         <h1 className="center text-white heading">Road Map</h1>
                     </Row>
                     <Row className="justify-content-center">
                         {getRoadMap()}
+                        {getPointer()}
                     </Row>
                 </Container>
             </div>

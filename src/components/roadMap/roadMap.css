@@ -15,3 +15,12 @@ a:link{
     text-align: center;
     color: #ffff
 }
+
+.img-container{
+    height: 500px;
+    width: 500px;
+}
+.img-preview{
+    height: 150px;
+    width: 150px;
+}
