@@ -114,28 +114,21 @@ export default function Home() {
         getConfig();
     }, []);
 
-    // Do connect on page load
+    // Check if connected on page load
     useEffect(async () => {
-        // const res = await isWalletConnected()
-        // if(res && res == -1) {
-        //     setIsConnectedAndCanMint(-1)
-        // } else if(res && res.isConnected) {
-        //     dispatch(connect())
-        //     getData()
-
-        //     setIsConnectedAndCanMint(true)
-        // } else {
-        //     setIsConnectedAndCanMint(false)
-        // }
-        dispatch(connect())
+        const { ethereum } = window
+        if( ethereum?._state?.accounts && ethereum?._state?.accounts?.length > 0 )
+            dispatch(connect())
     }, [])
 
     // Check status of blockchain
     useEffect(() => {
+        const { ethereum } = window
+        console.log( ethereum?._state?.accounts && ethereum?._state?.accounts?.length > 0 )
         if (blockchain) {
             if (claimingNft || blockchain.loading) {
                 setIsConnectedAndCanMint(3)
-            } else if (blockchain.account) {
+            } else if ( ethereum?._state?.accounts && ethereum?._state?.accounts?.length > 0 ) {
                 setIsConnectedAndCanMint(true)
             } else {
                 setIsConnectedAndCanMint(false)
