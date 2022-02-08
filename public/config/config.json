@@ -1,5 +1,5 @@
 {
-  "CONTRACT_ADDRESS": "0x5bBA20Da6f7434C7b57E59058214f0455d5bc629",
+  "CONTRACT_ADDRESS": "0x765FDb3bd4730dbCD88c00143d4313042Ddb5e5a",
   "SCAN_LINK": "https://polygonscan.com/token/0x827acb09a2dc20e39c9aad7f7190d9bc53534192",
   "NETWORK": {
     "NAME": "Ethereum",
@@ -16,3 +16,4 @@
   "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/slothtest",
   "SHOW_BACKGROUND": true
 }
+
