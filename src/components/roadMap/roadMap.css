@@ -1,17 +1,15 @@
-a:link{
-    text-decoration: none;
+.item-container{
+    border-left: 2px solid rgb(244, 67, 54);
 }
 
-.roadmap-title {
+.heading{
     font-family: 'LuckiestGuy';
-    font-size: 50px;
-    text-align: center;
-    color: #ffff
 }
 
-.roadmap-description {
-    font-family: 'LuckiestGuy';
-    font-size: 20px;
-    text-align: center;
-    color: #ffff
+.text{
+    font-family: 'Amiko-Bold';
+}
+
+.phase-button{
+    
 }

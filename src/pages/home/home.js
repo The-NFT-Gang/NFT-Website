@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createRef } from 'react';
-import { Container, Carousel, Image, Row, Col, Button, ListGroup } from 'react-bootstrap';
+import { Container, Carousel, Image, Row, Col, Button, ListGroup, Accordion } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons'
@@ -114,28 +114,21 @@ export default function Home() {
         getConfig();
     }, []);
 
-    // Do connect on page load
+    // Check if connected on page load
     useEffect(async () => {
-        // const res = await isWalletConnected()
-        // if(res && res == -1) {
-        //     setIsConnectedAndCanMint(-1)
-        // } else if(res && res.isConnected) {
-        //     dispatch(connect())
-        //     getData()
-
-        //     setIsConnectedAndCanMint(true)
-        // } else {
-        //     setIsConnectedAndCanMint(false)
-        // }
-        dispatch(connect())
+        const { ethereum } = window
+        if( ethereum?._state?.accounts && ethereum?._state?.accounts?.length > 0 )
+            dispatch(connect())
     }, [])
 
     // Check status of blockchain
     useEffect(() => {
+        const { ethereum } = window
+        console.log( ethereum?._state?.accounts && ethereum?._state?.accounts?.length > 0 )
         if (blockchain) {
             if (claimingNft || blockchain.loading) {
                 setIsConnectedAndCanMint(3)
-            } else if (blockchain.account) {
+            } else if ( ethereum?._state?.accounts && ethereum?._state?.accounts?.length > 0 ) {
                 setIsConnectedAndCanMint(true)
             } else {
                 setIsConnectedAndCanMint(false)
@@ -166,10 +159,8 @@ export default function Home() {
 
     const getRoadMap = () => {
         return (
-            ROAD_MAP.map((item, index) =>
-                <Col xl={2} lg={4} md={4} sm={6} key={index}>
-                    <RoadMap img={item.img} phase={item.phase} title={item.title} description={item.description} />
-                </Col>
+            ROAD_MAP.map((entry, index) =>
+                <RoadMap key={index} description={entry.description} phase={entry.phase} title={entry.title} />
             )
         );
     }
@@ -194,7 +185,7 @@ export default function Home() {
 
     return (
         <>
-            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef} communityRef={communityRef} />
+            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef} communityRef={communityRef} roadMapref={roadMapref}/>
             <Carousel>
                 {getCarouselItems()}
             </Carousel>
@@ -287,8 +278,8 @@ export default function Home() {
                     </Row>
                 </Container>
             </div>
-            <div>
-                <Container className="pt-5 pb-5 text-white" ref={communityRef}>
+            <div ref={communityRef}>
+                <Container className="pt-5 pb-5 text-white">
                     <Row className="center">
                         <Col lg={5} sm={12} md={12} xs={12} className="pl-5 ml-5">
                             <div className="pl-5 ml-5">
@@ -302,21 +293,21 @@ export default function Home() {
                     </Row>
                     <Row className="center">
                         <Col lg={5} sm={12} md={12} xs={12} className="mt-5 mb-5 center">
-                            <iframe src="https://discord.com/widget?id=750096806733414452&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                            <iframe src="https://discord.com/widget?id=750096806733414452&theme=dark" width="350" height="500" allowtransparency="true" frameBorder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                         </Col>
                         <Col lg={5} sm={12} md={12} xs={12} className="mt-5 mb-5 center">
-                            <a class="twitter-timeline" data-width="350" data-height="500" data-theme="dark" href="https://twitter.com/MajidJoseph3?ref_src=twsrc%5Etfw">Tweets by MajidJoseph3</a>
+                            <a className="twitter-timeline" data-width="350" data-height="500" data-theme="dark" href="https://twitter.com/MajidJoseph3?ref_src=twsrc%5Etfw">Tweets by MajidJoseph3</a>
                         </Col>
                     </Row>
                 </Container>
             </div>
-            <div ref={roadMapref} className="roadmap-section pt-5 pb-5">
-                <Container className="text-center pb-4">
-                    <Row className="text-center pb-5">
-                        <h1 className="center text-white heading">Road Map</h1>
-                    </Row>
+            <div ref={roadMapref} className="pt-5 pb-5 justify-content-center">
+                <Container className="pb-4">
+                    <h1 className="center text-white heading text-center">Road Map</h1>
                     <Row className="justify-content-center">
-                        {getRoadMap()}
+                        <Accordion defaultActiveKey={['0']} flush className='accordian' alwaysOpen={true}>
+                            {getRoadMap()}
+                        </Accordion>
                     </Row>
                 </Container>
             </div>
