@@ -1,26 +1,10 @@
-.team-section, .about-section{
-    background-color: #090909;
-}
+.container{
+    background-image: url("site-top-to-bottom.jpg");
+    
+    min-height: 100vh;
 
-.heading{
-    font-family: 'LuckiestGuy';
-}
-
-.text{
-    font-family: 'Amiko-Bold';
-}
-
-.center{
-    display: flex;
-    justify-content: center;
-}
-
-.accordian{
-    display: flex;
-    flex-direction: column;
-}
-
-ul{
-    list-style-type: none;
-    color: #ffc107;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
