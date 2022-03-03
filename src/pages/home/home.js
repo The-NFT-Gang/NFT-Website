@@ -10,7 +10,7 @@ import './home.css';
 import { useDispatch, useSelector } from "react-redux";
 import { connect, isWalletConnected } from "./../../redux/blockchain/blockchainActions";
 import { fetchData } from "./../../redux/data/dataActions";
-import Header from '../../components/header';
+import Navbar from '../../components/Navbar';
 import Footer from '../../components/footer';
 
 //Used for contract address
@@ -101,7 +101,7 @@ export default function Home() {
 
     const getConfig = async () => {
         const configResponse = await fetch("/config/config.json", {
-            headers: {
+            Navbars: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
             },
@@ -185,7 +185,7 @@ export default function Home() {
 
     return (
         <>
-            <Header teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef} communityRef={communityRef} roadMapref={roadMapref}/>
+            <Navbar teamRef={teamRef} mintRef={mintRef} aboutRef={aboutRef} communityRef={communityRef} roadMapref={roadMapref}/>
             <Carousel>
                 {getCarouselItems()}
             </Carousel>

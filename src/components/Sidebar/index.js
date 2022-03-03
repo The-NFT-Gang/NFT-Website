@@ -1,0 +1,15 @@
+import React from 'react'
+
+const Sidebar = () => {
+  return (
+    <SidebarContainer>
+        <Icon>
+            <CloseIcon>
+                
+            </CloseIcon>
+        </Icon>
+    </SidebarContainer>
+  )
+}
+
+export default Sidebar
