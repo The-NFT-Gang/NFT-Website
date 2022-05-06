@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-
+import Sidebar from "./components/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
@@ -10,11 +10,10 @@ import "./App.css";
 
 
 
-
-
 function App() {
   return (
     <Router>
+      <Sidebar />
       <Navbar />
     </Router>
   );
