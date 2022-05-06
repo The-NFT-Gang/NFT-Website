@@ -1,0 +1,4 @@
+.bg-dark{
+    background-color: rgba(33,37,41) !important;
+    --bs-bg-opacity: 1;
+}
