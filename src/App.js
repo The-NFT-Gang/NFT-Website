@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
+// import Navbar from "./components/Navbar";
+// import Sidebar from "./components/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import { BrowserRouter as Router, Routes, Route, Redirect } from 'react-router-dom';
-import Home from './pages/home';
+import Home from './pages';
 import "./App.css";
 
 
@@ -13,8 +13,8 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <Sidebar />
-      <Navbar />
+      <Home />
+      
     </Router>
   );
 }

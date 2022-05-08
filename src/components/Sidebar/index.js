@@ -18,53 +18,36 @@ const Sidebar = ({ isOpen, toggle }) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink
-            to='about'
-            onClick={toggle}
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact='true'
-            offset={-80}
+
+         <SidebarLink
+            to='Project'
           >
-            About
+            Project
+          </SidebarLink> 
+
+          <SidebarLink
+            to='RoadMap'
+          >
+            RoadMap
           </SidebarLink>
           <SidebarLink
-            to='discover'
-            onClick={toggle}
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact='true'
-            offset={-80}
+            to='Mint'
           >
-            Discover
+            Mint
           </SidebarLink>
           <SidebarLink
-            to='services'
-            onClick={toggle}
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact='true'
-            offset={-80}
+            to='Team'
           >
-            Services
+            Team
           </SidebarLink>
           <SidebarLink
-            to='signup'
-            onClick={toggle}
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact='true'
-            offset={-80}
+            to='Socials '
           >
-            Sign Up
+            Socials
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to='/signin'>Sign In</SidebarRoute>
+          <SidebarRoute to='/Connect'>Connect</SidebarRoute>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>
